@@ -1,0 +1,5 @@
+# all checkpoints
+**/ckpt
+
+# object detection api
+**/models

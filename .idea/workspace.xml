@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="994eea4a-23df-480d-ab7d-a5603b50c7ed" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/bert/model_training_utils_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/bert/model_training_utils_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/data/classifier_data_lib.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/data/classifier_data_lib.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/data/create_xlnet_pretraining_data_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/data/create_xlnet_pretraining_data_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/data/sentence_retrieval_lib.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/data/sentence_retrieval_lib.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/keras_nlp/encoders/bert_encoder_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/keras_nlp/encoders/bert_encoder_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/modeling/layers/dense_einsum.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/modeling/layers/dense_einsum.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/modeling/layers/relative_attention_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/modeling/layers/relative_attention_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/modeling/layers/transformer_xl_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/modeling/layers/transformer_xl_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/modeling/networks/albert_encoder_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/modeling/networks/albert_encoder_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/modeling/networks/bert_encoder_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/modeling/networks/bert_encoder_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/modeling/networks/encoder_scaffold_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/modeling/networks/encoder_scaffold_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/modeling/networks/xlnet_base_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/modeling/networks/xlnet_base_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/nhnet/evaluation.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/nhnet/evaluation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/transformer/compute_bleu.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/transformer/compute_bleu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/transformer/model_params.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/transformer/model_params.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/nlp/transformer/utils/tokenizer_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/nlp/transformer/utils/tokenizer_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/recommendation/data_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/recommendation/data_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/recommendation/popen_helper.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/recommendation/popen_helper.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/utils/flags/_base.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/utils/flags/_base.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/utils/flags/core.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/utils/flags/core.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/utils/testing/mock_task.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/utils/testing/mock_task.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/utils/testing/scripts/builds_common.sh" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/utils/testing/scripts/builds_common.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/utils/testing/scripts/ci_sanity.sh" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/utils/testing/scripts/ci_sanity.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/utils/testing/scripts/presubmit.sh" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/utils/testing/scripts/presubmit.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/vision/beta/modeling/layers/roi_generator.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/vision/beta/modeling/layers/roi_generator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/vision/detection/configs/base_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/vision/detection/configs/base_config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/vision/detection/utils/object_detection/preprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/vision/detection/utils/object_detection/preprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/official/vision/image_classification/classifier_trainer_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/official/vision/image_classification/classifier_trainer_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/orbit/controller_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/orbit/controller_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/attention_ocr/python/common_flags.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/attention_ocr/python/common_flags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/attention_ocr/python/datasets/unittest_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/attention_ocr/python/datasets/unittest_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/attention_ocr/python/demo_inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/attention_ocr/python/demo_inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/audioset/vggish/vggish_train_demo.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/audioset/vggish/vggish_train_demo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/audioset/yamnet/export.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/audioset/yamnet/export.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/cognitive_planning/train_supervised_active_vision.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/cognitive_planning/train_supervised_active_vision.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/deeplab/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/deeplab/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/deeplab/datasets/convert_cityscapes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/deeplab/datasets/convert_cityscapes.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/deeplab/datasets/data_generator_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/deeplab/datasets/data_generator_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/deeplab/deprecated/segmentation_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/deeplab/deprecated/segmentation_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/deeplab/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/deeplab/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/deeplab/utils/train_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/deeplab/utils/train_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/delf/delf/python/training/build_image_dataset.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/delf/delf/python/training/build_image_dataset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/efficient-hrl/run_eval.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/efficient-hrl/run_eval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/efficient-hrl/run_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/efficient-hrl/run_train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/lfads/lfads.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/lfads/lfads.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/lstm_object_detection/inputs/seq_dataset_builder_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/lstm_object_detection/inputs/seq_dataset_builder_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/lstm_object_detection/model_builder_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/lstm_object_detection/model_builder_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/object_detection/core/class_agnostic_nms_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/object_detection/core/class_agnostic_nms_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/object_detection/core/freezable_batch_norm_tf2_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/object_detection/core/freezable_batch_norm_tf2_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/object_detection/core/preprocessor.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/object_detection/core/preprocessor.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/object_detection/dataset_tools/create_ava_actions_tf_record.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/object_detection/dataset_tools/create_ava_actions_tf_record.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/object_detection/meta_architectures/center_net_meta_arch_tf2_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/object_detection/meta_architectures/center_net_meta_arch_tf2_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/object_detection/model_lib_tf1_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/object_detection/model_lib_tf1_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/object_detection/packages/tf1/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/object_detection/packages/tf1/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/object_detection/packages/tf2/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/object_detection/packages/tf2/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/object_detection/protos/input_reader.proto" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/object_detection/protos/input_reader.proto" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/object_detection/utils/test_utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/object_detection/utils/test_utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/slim/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/slim/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/slim/datasets/cifar10.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/slim/datasets/cifar10.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/slim/datasets/download_and_convert_cifar10.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/slim/datasets/download_and_convert_cifar10.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/slim/datasets/download_and_convert_mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/slim/datasets/download_and_convert_mnist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/slim/datasets/flowers.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/slim/datasets/flowers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/slim/datasets/mnist.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/slim/datasets/mnist.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/slim/nets/pix2pix.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/slim/nets/pix2pix.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/slim/scripts/finetune_inception_resnet_v2_on_flowers.sh" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/slim/scripts/finetune_inception_resnet_v2_on_flowers.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/slim/scripts/finetune_inception_v1_on_flowers.sh" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/slim/scripts/finetune_inception_v1_on_flowers.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/slim/scripts/finetune_inception_v3_on_flowers.sh" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/slim/scripts/finetune_inception_v3_on_flowers.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/slim/scripts/finetune_resnet_v1_50_on_flowers.sh" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/slim/scripts/finetune_resnet_v1_50_on_flowers.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/slim/scripts/train_cifarnet_on_cifar10.sh" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/slim/scripts/train_cifarnet_on_cifar10.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/slim/scripts/train_lenet_on_mnist.sh" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/slim/scripts/train_lenet_on_mnist.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/research/slim/train_image_classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/research/slim/train_image_classifier.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/models" />
+  </component>
+  <component name="ProjectId" id="1miDWfwsbTsTqfizYfmalvfjRXS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Research 2020/code/Wandering-Artist" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+  </component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="RealDilemma" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="994eea4a-23df-480d-ab7d-a5603b50c7ed" name="Default Changelist" comment="" />
+      <created>1609967550186</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1609967550186</updated>
+      <workItem from="1609967614125" duration="7596000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="460" y="124" key="FileChooserDialogImpl" timestamp="1609967991933">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="460" y="124" key="FileChooserDialogImpl/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1609967991933" />
+    <state width="1319" height="181" key="GridCell.Tab.0.bottom" timestamp="1610071585092">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state width="1319" height="181" key="GridCell.Tab.0.bottom/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1610071585092" />
+    <state width="1319" height="181" key="GridCell.Tab.0.center" timestamp="1610071585092">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state width="1319" height="181" key="GridCell.Tab.0.center/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1610071585092" />
+    <state width="1319" height="181" key="GridCell.Tab.0.left" timestamp="1610071585092">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state width="1319" height="181" key="GridCell.Tab.0.left/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1610071585092" />
+    <state width="1319" height="181" key="GridCell.Tab.0.right" timestamp="1610071585092">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state width="1319" height="181" key="GridCell.Tab.0.right/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1610071585092" />
+    <state x="181" y="14" key="SettingsEditor" timestamp="1609967836165">
+      <screen x="0" y="0" width="1360" height="738" />
+    </state>
+    <state x="181" y="14" key="SettingsEditor/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1609967836165" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/RealDilemma$main.coverage" NAME="main Coverage Results" MODIFIED="1610072732010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>
