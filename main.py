@@ -1,16 +1,15 @@
 from src.OverHead import OverHead
 from src.ObjectDetection.training import inference
+from Pi.PiBot.Actions import Actions
+
 import cv2
 
-def test_cam() -> None:
-    # Test overhead camera #
-    # VIDEO stream #
-    OH = OverHead()
-    while True:
-        frame = OH.get_frame()
-        cv2.imshow("Frame", frame)
-        key = cv2.waitKey(1) & 0xFF
+
 
 if __name__ == "__main__":
-    # run inference test
+    OH = OverHead()
+    OH.test_cam()
     inference.inference_test()
+    bot = Actions()
+    bot.test()
+    

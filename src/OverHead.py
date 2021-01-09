@@ -47,6 +47,14 @@ class OverHead:
         """
         frame = self.stream.read()
         return frame
+    
+    def test_cam(self) -> None:
+        # Test overhead camera #
+        # VIDEO stream #
+        while True:
+            frame = self.get_frame()
+            cv2.imshow("Frame", frame)
+            key = cv2.waitKey(1) & 0xFF
 
     def __del__(self) -> None:
         """
