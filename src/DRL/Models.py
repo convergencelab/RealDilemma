@@ -18,5 +18,21 @@ avoid objects (walls/robots). We will allow the robot that can "move" to train i
 to further train the encoder with feedback from the environment, we will be attempting to integrate meaning into the
 interpretation of the vision. Train in "handicapped setting" for the introduction of meaning integration.
 
+
+
+
+
+
+
 """
+
+# VISION MODEL
+
+
+
+
+
+# MEMORY MODEL
+
+# CONTROLLER MODEL
 
