@@ -96,11 +96,11 @@ def train_step(model, x, optimizer):
   optimizer.apply_gradients(zip(gradients, model.trainable_variables))
 
 if __name__  == "__main__":
-    cvae = CVAE(latent_dim=2)
-    x = np.random.rand(1, 128)
-    x = np.expand_dims(x, axis=2)
-    mean_x, logvar_x = cvae.encode(x)
-    x = cvae.reparameterize(mean_x, logvar_x)
-    y = cvae.decode(x)
-    # print(cvae.encoder(x))
+    # cvae = CVAE(latent_dim=2)
+    # x = np.random.rand(1, 128)
+    # x = np.expand_dims(x, axis=2)
+    # mean_x, logvar_x = cvae.encode(x)
+    # x = cvae.reparameterize(mean_x, logvar_x)
+    # y = cvae.decode(x)
+    # # print(cvae.encoder(x))
     True
