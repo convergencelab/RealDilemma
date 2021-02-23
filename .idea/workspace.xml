@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="994eea4a-23df-480d-ab7d-a5603b50c7ed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/DRL/MDRNN.py" afterDir="false" />
+    <list default="true" id="208e8e31-4bb5-437d-bd0d-4ac50d253576" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/RealDilemma.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RealDilemma.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DRL/Models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/DRL/Models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/DRL/VAE.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/DRL/VAE.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -12,40 +12,23 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1miDWfwsbTsTqfizYfmalvfjRXS" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectId" id="1ohmRbSEbqhSRBavxS4wjGKNasY" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
-    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="TERMINAL_CUSTOM_COMMANDS_GOT_IT" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="Python" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../School/A1.py" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Noah Barrett\Desktop\School\fourth year (2020-2021)\ROBOTHESIS\RealDilemma\Pi" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Python.Models">
-    <configuration name="DQN" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager">
+    <configuration name="example_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="RealDilemma" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -53,100 +36,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/DRL" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../NUmerai/numerai_datasets" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/DRL/DQN.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Environment" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="RealDilemma" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/DRL" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/DRL/Environment.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Models" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="RealDilemma" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/DRL" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/DRL/Models.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Simulator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="RealDilemma" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/DRL" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/DRL/Simulator.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="RealDilemma" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../../NUmerai/numerai_datasets/example_model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -157,94 +52,39 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Models" />
-        <item itemvalue="Python.main" />
-        <item itemvalue="Python.DQN" />
-        <item itemvalue="Python.Simulator" />
-        <item itemvalue="Python.Environment" />
+        <item itemvalue="Python.example_model" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="994eea4a-23df-480d-ab7d-a5603b50c7ed" name="Default Changelist" comment="" />
-      <created>1609967550186</created>
+      <changelist id="208e8e31-4bb5-437d-bd0d-4ac50d253576" name="Default Changelist" comment="" />
+      <created>1613747188675</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1609967550186</updated>
-      <workItem from="1609967614125" duration="8080000" />
-      <workItem from="1610218783653" duration="1355000" />
-      <workItem from="1610296154489" duration="29522000" />
-      <workItem from="1610823682987" duration="10758000" />
-      <workItem from="1612538011582" duration="4034000" />
-      <workItem from="1612819133502" duration="843000" />
-      <workItem from="1612886216518" duration="1484000" />
-      <workItem from="1613394186631" duration="8360000" />
+      <updated>1613747188675</updated>
+      <workItem from="1613747189836" duration="1222000" />
+      <workItem from="1613853120520" duration="42000" />
+      <workItem from="1613853163715" duration="5687000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="649" y="176" key="FileChooserDialogImpl" timestamp="1612819175758">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="460" y="124" key="FileChooserDialogImpl/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1610306427738" />
-    <state x="649" y="176" key="FileChooserDialogImpl/-3840.0.1280.710/0.0.1920.1050@0.0.1920.1050" timestamp="1612819175758" />
-    <state width="1877" height="351" key="GridCell.Tab.0.bottom" timestamp="1613402167387">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1317" height="227" key="GridCell.Tab.0.bottom/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1610394323682" />
-    <state width="1877" height="351" key="GridCell.Tab.0.bottom/-3840.0.1280.710/0.0.1920.1050@0.0.1920.1050" timestamp="1613402167387" />
-    <state width="1877" height="351" key="GridCell.Tab.0.center" timestamp="1613402167387">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1317" height="227" key="GridCell.Tab.0.center/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1610394323681" />
-    <state width="1877" height="351" key="GridCell.Tab.0.center/-3840.0.1280.710/0.0.1920.1050@0.0.1920.1050" timestamp="1613402167387" />
-    <state width="1877" height="351" key="GridCell.Tab.0.left" timestamp="1613402167387">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1317" height="227" key="GridCell.Tab.0.left/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1610394323680" />
-    <state width="1877" height="351" key="GridCell.Tab.0.left/-3840.0.1280.710/0.0.1920.1050@0.0.1920.1050" timestamp="1613402167387" />
-    <state width="1877" height="351" key="GridCell.Tab.0.right" timestamp="1613402167387">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1317" height="227" key="GridCell.Tab.0.right/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1610394323681" />
-    <state width="1877" height="351" key="GridCell.Tab.0.right/-3840.0.1280.710/0.0.1920.1050@0.0.1920.1050" timestamp="1613402167387" />
-    <state width="1877" height="351" key="GridCell.Tab.1.bottom" timestamp="1613402167387">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1317" height="227" key="GridCell.Tab.1.bottom/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1610394323683" />
-    <state width="1877" height="351" key="GridCell.Tab.1.bottom/-3840.0.1280.710/0.0.1920.1050@0.0.1920.1050" timestamp="1613402167387" />
-    <state width="1877" height="351" key="GridCell.Tab.1.center" timestamp="1613402167387">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1317" height="227" key="GridCell.Tab.1.center/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1610394323682" />
-    <state width="1877" height="351" key="GridCell.Tab.1.center/-3840.0.1280.710/0.0.1920.1050@0.0.1920.1050" timestamp="1613402167387" />
-    <state width="1877" height="351" key="GridCell.Tab.1.left" timestamp="1613402167387">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1317" height="227" key="GridCell.Tab.1.left/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1610394323682" />
-    <state width="1877" height="351" key="GridCell.Tab.1.left/-3840.0.1280.710/0.0.1920.1050@0.0.1920.1050" timestamp="1613402167387" />
-    <state width="1877" height="351" key="GridCell.Tab.1.right" timestamp="1613402167387">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state width="1317" height="227" key="GridCell.Tab.1.right/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1610394323682" />
-    <state width="1877" height="351" key="GridCell.Tab.1.right/-3840.0.1280.710/0.0.1920.1050@0.0.1920.1050" timestamp="1613402167387" />
-    <state x="181" y="14" key="SettingsEditor" timestamp="1609967836165">
-      <screen x="0" y="0" width="1360" height="738" />
-    </state>
-    <state x="181" y="14" key="SettingsEditor/-2160.-2160.1280.710/0.0.1360.738@0.0.1360.738" timestamp="1609967836165" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/RealDilemma$Models.coverage" NAME="Models Coverage Results" MODIFIED="1613401791013" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/DRL" />
-    <SUITE FILE_PATH="coverage/RealDilemma$Simulator.coverage" NAME="Simulator Coverage Results" MODIFIED="1610316982940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/DRL" />
-    <SUITE FILE_PATH="coverage/RealDilemma$Environment.coverage" NAME="Environment Coverage Results" MODIFIED="1610316569901" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/DRL" />
-    <SUITE FILE_PATH="coverage/RealDilemma$main.coverage" NAME="main Coverage Results" MODIFIED="1610374442738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/RealDilemma$DQN.coverage" NAME="DQN Coverage Results" MODIFIED="1610327081221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/DRL" />
+    <SUITE FILE_PATH="coverage/RealDilemma$example_model.coverage" NAME="example_model Coverage Results" MODIFIED="1613926492987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../../NUmerai/numerai_datasets" />
   </component>
 </project>

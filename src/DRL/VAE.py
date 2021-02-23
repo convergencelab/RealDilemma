@@ -3,7 +3,7 @@ import tensorflow as tf
 
 """
 adapted from https://www.tensorflow.org/tutorials/generative/cvae
-
+vi
 *** INPUT FROM ROBO:
     at any time step it will collect a given amount of information, any other position will be flagged
     to indicate that it is unsure what is there.
