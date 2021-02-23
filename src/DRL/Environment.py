@@ -1,3 +1,7 @@
+"""
+TODO: convert to openai gym
+https://towardsdatascience.com/creating-a-custom-openai-gym-environment-for-stock-trading-be532be3910e
+"""
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
