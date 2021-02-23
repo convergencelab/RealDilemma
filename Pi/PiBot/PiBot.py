@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 import time
-
+import numpy as np
 """
 Abstract actions from algorithm:
 """
@@ -51,11 +51,9 @@ class PiBot:
         self.servo.start(0)  # 0 -> pulse off
         self.l_pwm.start(0)  # 0 -> pulse off
         self.r_pwm.start(0)  # 0 -> pulse off
-        # GPIO.output(self.GPIO_LEFT_FORWARD, GPIO.LOW)
-        # GPIO.output(self.GPIO_RIGHT_FORWARD, GPIO.LOW)
-        # GPIO.output(self.GPIO_LEFT_BACKWARD, GPIO.LOW)
-        # GPIO.output(self.GPIO_RIGHT_BACKWARD, GPIO.LOW)
-        # time.sleep(2)
+
+        # [forwards, backwards, cw, ccw, turn servo], Ultrasound sensor]
+        self._total_actions = np.zeros(5)
 
     def read_ultrasound(self):
         """
@@ -81,11 +79,7 @@ class PiBot:
         distance = (del_time * 34300) / 2
         return distance
 
-    def turn_servo(self, duty):
-        """
-        turn servo, range between 0 - 12
-        """
-        self.servo.ChangeDutyCycle(duty)
+
 
     def forward(self, d):
         # r or l
@@ -100,8 +94,14 @@ class PiBot:
         GPIO.output(self.GPIO_RIGHT_PWM, True)
         GPIO.output(self.GPIO_LEFT_PWM, True)
         time.sleep(d)
+        # update state, set last action taken and read ultrasound sensor
+        self._state[0] = 0
+        self._state[1] = self.read_ultrasound()
+        self._total_actions[self._state[0]]+=d
 
     def backward(self, d):
+        self._state = np.zeros(5)
+        self._state[1] = d
         # r or l
         GPIO.output(self.GPIO_RIGHT_FORWARD, False)
         GPIO.output(self.GPIO_RIGHT_BACKWARD, True)
@@ -114,8 +114,15 @@ class PiBot:
         GPIO.output(self.GPIO_RIGHT_PWM, True)
         GPIO.output(self.GPIO_LEFT_PWM, True)
         time.sleep(d)
+        # update state, set last action taken and read ultrasound sensor
+        self._state[0] = 1
+        self._state[1] = self.read_ultrasound()
+        self._total_actions[self._state[0]] += d
 
     def turn_cw(self, d):
+        # update state
+        self._state = np.zeros(5)
+        self._state[2] = d
         # r or l
         GPIO.output(self.GPIO_RIGHT_FORWARD, True)
         GPIO.output(self.GPIO_RIGHT_BACKWARD, False)
@@ -128,6 +135,10 @@ class PiBot:
         GPIO.output(self.GPIO_RIGHT_PWM, True)
         GPIO.output(self.GPIO_LEFT_PWM, True)
         time.sleep(d)
+        # update state, set last action taken and read ultrasound sensor
+        self._state[0] = 2
+        self._state[1] = self.read_ultrasound()
+        self._total_actions[self._state[0]] += d
 
     def turn_ccw(self, d):
         # r or l
@@ -142,18 +153,36 @@ class PiBot:
         GPIO.output(self.GPIO_RIGHT_PWM, True)
         GPIO.output(self.GPIO_LEFT_PWM, True)
         time.sleep(d)
+        # update state, set last action taken and read ultrasound sensor
+        self._state[0] = 3
+        self._state[1] = self.read_ultrasound()
+        self._total_actions[self._state[0]] += d
 
-    def motor_left(self):
-        raise NotImplementedError
+    def turn_servo(self, duty):
+        """
+        turn servo, range between 0 - 12
+        """
+        self.servo.ChangeDutyCycle(duty)
+        # update state, set last action taken and read ultrasound sensor
+        self._state[0] = 4
+        self._state[1] = self.read_ultrasound()
+        self._total_actions[self._state[0]] += d
 
-    def motor_right(self):
-        raise NotImplementedError
+    def get_state(self):
+        return self._state
+
+    def get_total_actions(self):
+        return self._total_actions
+
+    def reset(self):
+        self._state = np.zeros(2)
+        self._total_actions = np.zeros(5)
+
 
     def test(self):
         """
         test physical components
         """
-        
         self.forward(1)
         self.backward(1)
         self.turn_ccw(1)

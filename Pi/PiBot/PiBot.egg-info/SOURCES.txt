@@ -1,0 +1,6 @@
+setup.py
+PiBot.egg-info/PKG-INFO
+PiBot.egg-info/SOURCES.txt
+PiBot.egg-info/dependency_links.txt
+PiBot.egg-info/requires.txt
+PiBot.egg-info/top_level.txt
