@@ -153,8 +153,11 @@ class PiBot:
         """
         test physical components
         """
-        self.turn_ccw(5)
-        self.turn_cw(5)
+        
+        self.forward(1)
+        self.backward(1)
+        self.turn_ccw(1)
+        self.turn_cw(1)
         self.l_pwm.ChangeDutyCycle(0)
         self.r_pwm.ChangeDutyCycle(0)
         GPIO.cleanup()
