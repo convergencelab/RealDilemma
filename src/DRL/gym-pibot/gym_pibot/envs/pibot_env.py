@@ -24,15 +24,23 @@ class PiBotEnv(gym.Env):
 
       self.reward_range = (0, MAX_REWARD)
       # Actions: [[0:Forwards, 1:Backwards, 2:turn_cw, 3:turn_ccw, 4:Turn Servo], power]
-      self.action_space = spaces.Box(
-          low=np.array([0, 0]), high=np.array([5, 10]), dtype=np.float16)
+      #.action_space = spaces.Box(
+      #    low=np.array([0, 0]), high=np.array([5, 10]))
+      self.action_space = spaces.Box(low=np.array([0, 0]), high=np.array([4, 10]), dtype=np.int32)
       # Initial observation will just be the ultrasound sensor and amount of distance travelled (either forward or backward)
-      self.observation_space = spaces.Box(
-          low=np.array([0]), high=np.array([1000]), dtype=np.float16)
-      # initial condition
-      self.state = None
+      self.observation_space = spaces.Box(low=np.array([0, 0]), high=np.array([4, 1000]), dtype=np.int32)
 
-  def _step(self, action):
+  def reset(self):
+    """
+    no reset for this one
+    :return:
+    """
+    # initial condition
+
+    self.PiBot.reset()
+    return self.PiBot.get_state()
+
+  def step(self, action):
       """
       no ending of episode yet, must determine what this means exactly
       same with info
@@ -40,21 +48,19 @@ class PiBotEnv(gym.Env):
       :return:
       """
       self._take_action(action)
-      # self.status = self.env.step()
       reward = self._get_reward()
-      ob = self._getState()
-      if np.sum(self.PiBot.get_total_actions) >= ENERGY_THRES:
-          done = True
-      else:
-          done = False
+      ob = self._get_state()
+      print(ob)
+      # sum of actions >= energy thres
+      done = bool(sum(self.PiBot.get_total_actions()) >= ENERGY_THRES)
 
       return ob, reward, done, {}
 
   def _take_action(self, action):
       """ Converts the action space into PiBot action"""
-      action = self.CONTROL_LOOKUP[action[0]]
-      # perform action with the desginated duty
-      action(action[1])
+      control = self.CONTROL_LOOKUP[action[0]]
+      # perform action with a default of 1s
+      control(action[1])
 
   def _get_reward(self):
       """
@@ -73,13 +79,11 @@ class PiBotEnv(gym.Env):
       """
       return self.PiBot.get_state()
 
+  def close(self):
+      pass
 
-  def reset(self):
-    """
-    no reset for this one
-    :return:
-    """
-    self.PiBot.reset()
+
+
 
 
 

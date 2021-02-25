@@ -4,11 +4,12 @@ import numpy as np
 """
 Abstract actions from algorithm:
 """
-GPIO.setmode(GPIO.BOARD)
-GPIO.setwarnings(False)
+
+TESTING = True
 
 
 class PiBot:
+
     def __init__(self,
                  GPIO_SERVO: int = 11,
                  GPIO_TRIGGER: int = 12,
@@ -20,6 +21,8 @@ class PiBot:
                  GPIO_RIGHT_BACKWARD: int = 31,
                  GPIO_RIGHT_PWM: int = 26):
 
+        GPIO.setmode(GPIO.BOARD)
+        GPIO.setwarnings(False)
         # pins
         self.GPIO_SERVO: int = GPIO_SERVO
         self.GPIO_TRIGGER: int = GPIO_TRIGGER
@@ -41,7 +44,7 @@ class PiBot:
         GPIO.setup(self.GPIO_RIGHT_PWM, GPIO.OUT)  # EN2
         GPIO.setup(self.GPIO_RIGHT_FORWARD, GPIO.OUT)  # IN4
         GPIO.setup(self.GPIO_RIGHT_BACKWARD, GPIO.OUT)  # IN3
-        self.servo = GPIO.PWM(self.GPIO_SERVO, 50)  # 11 = pin, 50 = 50hz
+        self.servo = GPIO.PWM(self.GPIO_SERVO, 100)  # 11 = pin, 50 = 50hz
 
         # motors
         self.l_pwm = GPIO.PWM(self.GPIO_LEFT_PWM, 100)
@@ -54,12 +57,16 @@ class PiBot:
 
         # [forwards, backwards, cw, ccw, turn servo], Ultrasound sensor]
         self._total_actions = np.zeros(5)
-        self._state = np.zeros(2)
+        self._state = np.zeros(2, dtype=np.int32)
+        self.testing = TESTING
 
     def read_ultrasound(self):
         """
         Function to get distance from ultrasound sensor
         """
+        if self.testing:
+            print("read us")
+            return 0
         # trig set to high
         GPIO.output(self.GPIO_TRIGGER, True)
 
@@ -78,6 +85,7 @@ class PiBot:
         del_time = StopTime - StartTime
         # mult with sonic speed and dive by 2 (back and fourth)
         distance = (del_time * 34300) / 2
+
         return distance
 
 
@@ -99,13 +107,13 @@ class PiBot:
         self.l_pwm.ChangeDutyCycle(0)
         self.r_pwm.ChangeDutyCycle(0)
         # update state, set last action taken and read ultrasound sensor
-        #self._state[0] = 0
-        #self._state[1] = self.read_ultrasound()
-        #self._total_actions[self._state[0]]+=d
+        self._state[0] = 0
+        self._state[1] = min(self.read_ultrasound(), 1000)
+        self._total_actions[0]+=d
+        if self.testing:
+            print(f"forwards: {d}")
 
     def backward(self, d):
-        self._state = np.zeros(5)
-        self._state[1] = d
         # r or l
         GPIO.output(self.GPIO_RIGHT_FORWARD, False)
         GPIO.output(self.GPIO_RIGHT_BACKWARD, True)
@@ -122,14 +130,14 @@ class PiBot:
         self.l_pwm.ChangeDutyCycle(0)
         self.r_pwm.ChangeDutyCycle(0)
         # update state, set last action taken and read ultrasound sensor
-       # self._state[0] = 1
-       # self._state[1] = self.read_ultrasound()
-       # self._total_actions[self._state[0]] += d
+        self._state[0] = 1
+        self._state[1] = min(self.read_ultrasound(), 1000)
+        self._total_actions[1] += d
+        if self.testing:
+            print(f"backwards: {d}")
+
 
     def turn_cw(self, d):
-        # update state
-        self._state = np.zeros(5)
-        self._state[2] = d
         # r or l
         GPIO.output(self.GPIO_RIGHT_FORWARD, True)
         GPIO.output(self.GPIO_RIGHT_BACKWARD, False)
@@ -146,9 +154,11 @@ class PiBot:
         self.l_pwm.ChangeDutyCycle(0)
         self.r_pwm.ChangeDutyCycle(0)
         # update state, set last action taken and read ultrasound sensor
-       # self._state[0] = 2
-       # self._state[1] = self.read_ultrasound()
-       # self._total_actions[self._state[0]] += d
+        self._state[0] = 2
+        self._state[1] = min(self.read_ultrasound(), 1000)
+        self._total_actions[2] += d
+        if self.testing:
+            print(f"cw: {d}")
 
     def turn_ccw(self, d):
         # r or l
@@ -167,19 +177,23 @@ class PiBot:
         self.l_pwm.ChangeDutyCycle(0)
         self.r_pwm.ChangeDutyCycle(0)
         # update state, set last action taken and read ultrasound sensor
-       # self._state[0] = 3
-       # self._state[1] = self.read_ultrasound()
-       # self._total_actions[self._state[0]] += d
+        self._state[0] = 3
+        self._state[1] = min(self.read_ultrasound(), 1000)
+        self._total_actions[3] += d
+        if self.testing:
+            print(f"ccw: {d}")
 
-    def turn_servo(self, duty):
+    def turn_servo(self, d):
         """
         turn servo, range between 0 - 12
         """
-        self.servo.ChangeDutyCycle(duty)
+        self.servo.ChangeDutyCycle(d)
         # update state, set last action taken and read ultrasound sensor
         self._state[0] = 4
-        self._state[1] = self.read_ultrasound()
-        self._total_actions[self._state[0]] += d
+        self._state[1] = int(min(self.read_ultrasound(), 1000))
+        self._total_actions[4] += d
+        if self.testing:
+            print(f"servo: {d}")
 
     def get_state(self):
         return self._state
@@ -188,8 +202,11 @@ class PiBot:
         return self._total_actions
 
     def reset(self):
-        self._state = np.zeros(2)
-        self._total_actions = np.zeros(5)
+        self.l_pwm.stop()
+        self.r_pwm.stop()
+        self.servo.stop()
+        GPIO.cleanup()
+        self.__init__()
 
 
     def test(self):
@@ -217,9 +234,6 @@ class PiBot:
                 self.turn_cw(1)
             else:
                 print("incorrect cmd")
-
-
-
 
     def __del__(self):
         GPIO.cleanup()

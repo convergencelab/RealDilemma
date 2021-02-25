@@ -11,5 +11,6 @@ if __name__ == "__main__":
    # OH.test_cam()
     #inference.inference_test()
     bot = PiBot()
-    bot.test()
+    bot.testing = True
+    bot.run()
     

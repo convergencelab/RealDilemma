@@ -1,16 +1,32 @@
-class PiRoboEnv(gym.Env):
-    """A stock trading environment for OpenAI gym"""
-    # metadata = {'render.modes': ['human']}
-    def __init__(self, df):
-        super(PiRoboEnv, self).__init__()
-        self.df = df
-        self.reward_range = (0, MAX_REWARD)
-        # Actions: [Forwards, Backwards, Left, Right, Turn Servo]
-        self.action_space = spaces.Box(
-          low=np.array([0, 0, 0, 0, 0]), high=np.array([10, 10, 10, 10, 10]), dtype=np.float16)
-        # Initial observation will just be the ultrasound sensor
-        self.observation_space = spaces.Box(
-          low=0, high=1, shape=(1,), dtype=np.float16)
+import tensorflow
+print(tensorflow.__version__)
+import gym
+import json
+import datetime as dt
+from stable_baselines.common.policies import MlpPolicy
+from stable_baselines.common.vec_env import DummyVecEnv
+from stable_baselines.common.env_checker import check_env
+from stable_baselines import PPO2
+from gym_pibot.envs.pibot_env import PiBotEnv
+env = PiBotEnv()
+# If the environment don't follow the interface, an error will be thrown
+check_env(env, warn=True)
+# The algorithms require a vectorized environment to run
+env = DummyVecEnv([PiBotEnv])
 
-    def reset(self):
-        self.score = INIT_SCORE
+
+
+model = PPO2(MlpPolicy, env, verbose=1)
+
+#model.learn(total_timesteps=200)
+obs = env.reset()
+for i in range(3):
+  action, _states = model.predict(obs)
+  print("*********ACTION************")
+  print(action, _states)
+  print("**********ACTION************")
+ # obs, rewards, done, info = env.step(action)
+ # env.render()
+ # if done:
+  #  print("Goal reached!", "reward=", reward)
+   # break
