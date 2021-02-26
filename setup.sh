@@ -1,8 +1,8 @@
 #!bin/bash
 # on a fresh pi:
 pip3 install virtualenv
-cd ./envs/tf1_stable_baselines
-virtualenv tf1_stable_baselines
+cd ./envs/tf2_stable_baselines
+virtualenv tf2_stable_baselines
 cd bin
 source ./activate
 cd ../
