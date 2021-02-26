@@ -8,7 +8,7 @@ ENERGY_THRES = 4000# thres for total amount of different motors used in robo
 MAX_REWARD = 1000
 
 
-class PiBotEnv(gym.Env): 
+class PiBotEnv(gym.Env):
   """
   standard env for PiBot
   this is the most basic implementation of the robotic system.
