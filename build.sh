@@ -1,14 +1,19 @@
 #!bin/bash
-
 # on a fresh pi:
 pip3 install virtualenv
 cd ./envs/tf1_stable_baselines
 virtualenv tf1_stable_baselines
-cd tf1_stable_baselines/bin
+cd bin
 source ./activate
-cd ../../
+cd ../
 pip install -r requirements.txt
 pip3 install -U numpy
+
+# install local packages
+cd ../../Pi
+pip install -e  PiBot # PiBot is also a package in pip so need to be careful bout this
+cd ../src/DRL
+pip install -e gym-pibot
 
 # https://github.com/sophiagu/stable-baselines-tf2
 # find the installation of stable_baselines
