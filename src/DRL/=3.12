@@ -1,3 +1,0 @@
-Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
-Requirement already satisfied: opencv-python in /home/pi/RealDilemma/envs/tf1_stable_baselines/tf1_stable_baselines/lib/python3.7/site-packages (4.5.1.48)
-Requirement already satisfied: numpy>=1.14.5 in /home/pi/RealDilemma/envs/tf1_stable_baselines/tf1_stable_baselines/lib/python3.7/site-packages (from opencv-python) (1.20.1)
