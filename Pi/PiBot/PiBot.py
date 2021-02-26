@@ -236,6 +236,9 @@ class PiBot:
                 print("incorrect cmd")
 
     def __del__(self):
+        self.l_pwm.stop()
+        self.r_pwm.stop()
+        self.servo.stop()
         GPIO.cleanup()
 
 

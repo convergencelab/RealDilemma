@@ -7,7 +7,7 @@ source ./activate
 
 cd ../../
 pip3 install -r requirements.txt
-
+pip3 install -U numpy
 # https://github.com/sophiagu/stable-baselines-tf2
 # find the installation of stable_baselines
 #cd ../../

@@ -9,8 +9,11 @@ from stable_baselines.common.env_checker import check_env
 from stable_baselines import PPO2
 from gym_pibot.envs.pibot_env import PiBotEnv
 env = PiBotEnv()
+
 # If the environment don't follow the interface, an error will be thrown
 check_env(env, warn=True)
+# we must reset env because of RPI GPIO
+del env
 # The algorithms require a vectorized environment to run
 env = DummyVecEnv([PiBotEnv])
 
@@ -18,8 +21,9 @@ env = DummyVecEnv([PiBotEnv])
 
 model = PPO2(MlpPolicy, env, verbose=1)
 
-#model.learn(total_timesteps=200)
+model.learn(total_timesteps=200)
 obs = env.reset()
+
 for i in range(3):
   action, _states = model.predict(obs)
   print("*********ACTION************")

@@ -26,7 +26,8 @@ class PiBotEnv(gym.Env):
       # Actions: [[0:Forwards, 1:Backwards, 2:turn_cw, 3:turn_ccw, 4:Turn Servo], power]
       #.action_space = spaces.Box(
       #    low=np.array([0, 0]), high=np.array([5, 10]))
-      self.action_space = spaces.Box(low=np.array([0, 0]), high=np.array([4, 10]), dtype=np.int32)
+      #self.action_space = spaces.Box(low=np.array([0, 0]), high=np.array([4, 10]), dtype=np.int32)
+      self.action_space = spaces.Discrete(5)
       # Initial observation will just be the ultrasound sensor and amount of distance travelled (either forward or backward)
       self.observation_space = spaces.Box(low=np.array([0, 0]), high=np.array([4, 1000]), dtype=np.int32)
 
@@ -47,7 +48,7 @@ class PiBotEnv(gym.Env):
       :param action:
       :return:
       """
-      self._take_action(action)
+      self.do_action(action)
       reward = self._get_reward()
       ob = self._get_state()
       print(ob)
@@ -56,11 +57,12 @@ class PiBotEnv(gym.Env):
 
       return ob, reward, done, {}
 
-  def _take_action(self, action):
+  def do_action(self, action):
       """ Converts the action space into PiBot action"""
       control = self.CONTROL_LOOKUP[action[0]]
       # perform action with a default of 1s
-      control(action[1])
+      #control(action[1])
+      control(1)
 
   def _get_reward(self):
       """
@@ -69,7 +71,7 @@ class PiBotEnv(gym.Env):
       """
       # maximize amount of movement, maximize distance in ultrasound sensor
       state = self._get_state()
-      return state[0] + state[1]
+      return float(state[0] + state[1])
 
   def _get_state(self):
       """
@@ -80,6 +82,7 @@ class PiBotEnv(gym.Env):
       return self.PiBot.get_state()
 
   def close(self):
+      del self.PiBot
       pass
 
 
