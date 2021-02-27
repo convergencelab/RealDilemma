@@ -50,6 +50,7 @@ class PiBot2(PiBot):
         # state is now just a 3-tuple
         self._state = 0,0,0
         self._ultrasound = 0
+        self._start_ultrasound()
 
     def _start_ultrasound(self):
         """
@@ -129,7 +130,14 @@ class PiBot2(PiBot):
         GPIO.output(self.GPIO_LEFT_BACKWARD, False)
         return self._travel(duty, n, self._turn_pwm_ccw)
 
-
+    def stop(self, n):
+        GPIO.output(self.GPIO_RIGHT_FORWARD, False)
+        GPIO.output(self.GPIO_RIGHT_BACKWARD, False)
+        GPIO.output(self.GPIO_LEFT_FORWARD, False)
+        GPIO.output(self.GPIO_LEFT_BACKWARD, False)
+        self.l_pwm.ChangeDutyCycle(0)
+        self.r_pwm.ChangeDutyCycle(0)
+        time.sleep(n)
     def _travel(self, duty, n, pwm_thres, move_f=False, move_b=False):
         """
         helper function for forwards and backwards, left and right motion
@@ -223,6 +231,20 @@ class PiBot2(PiBot):
                 self.backward(duty, n)
             else:
                 print("incorrect cmd")
+    def _autonomous_simple(self):
+        while True:
+            print(self.get_ultrasound())
+            if self.get_ultrasound() <= 20:
+                self.stop(1)
+                self.backward(100, 1)
+                self.turn_ccw(100, 0.5)
+            else:
+                self.forward(100, 0.1)
+
+    def _test_ultrasound(self):
+        while True:
+            distance = self.get_ultrasound()
+            print(f"US: {distance}")
 
     def _test(self):
         try:

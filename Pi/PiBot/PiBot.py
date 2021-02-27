@@ -85,7 +85,7 @@ class PiBot:
         del_time = StopTime - StartTime
         # mult with sonic speed and dive by 2 (back and fourth)
         distance = (del_time * 34300) / 2
-        print(f"US: {distance}")
+        
         return distance
 
 

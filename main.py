@@ -13,5 +13,5 @@ if __name__ == "__main__":
     #bot = PiBot()
     #bot.test_run()
     bot = PiBot2()
-    bot._test()
+    bot._test_ultrasound()
     
