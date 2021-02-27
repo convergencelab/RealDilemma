@@ -16,10 +16,10 @@ class PiBot2(PiBot):
     # variables for actions #
     # left and right motors, we can adjust this as we please #
     # set to 0.75 0.75 by default to prevent too intense of movement #
-    TURN_PWM_CCW = 0.75, 0.75
-    TURN_PWM_CW = 0.75, 0.75
-    BACKWARDS_MOTOR_PWM = 0.75, 0.75
-    FORWARDS_MOTOR_PWM = 0.75, 0.75
+    TURN_PWM_CCW = 1.0, 1.0
+    TURN_PWM_CW = 1.0, 1.0
+    BACKWARDS_MOTOR_PWM = 1.0, 1.0
+    FORWARDS_MOTOR_PWM = 1.0, 1.0
     STARTING_FACTOR = 100
     STOPPING_FACTOR = 5 # how slow to stop bot
     US_RES = 5
@@ -145,6 +145,7 @@ class PiBot2(PiBot):
         t = n / self._us_res  # time to sleep per ultrasound reading
 
         # to allow for smooth starting #
+        """
         if move_b:
             L = duty * pwm_thres[0]
             R = duty * pwm_thres[1]
@@ -168,6 +169,7 @@ class PiBot2(PiBot):
         else:
             # account for time taken from stopping #
             t = t - (0.01*self._stopping_factor)/self._us_res
+        """
 
         # actual travel time #
         for i in range(self._us_res):
@@ -189,6 +191,7 @@ class PiBot2(PiBot):
             if total_score <= self._min_score:
                 # if there is not a significant amount of good, make it bad
                 total_score = -total_score
+        """
         # to allow for smooth stopping #
         if move_f:
             l = duty * pwm_thres[0]
@@ -199,7 +202,7 @@ class PiBot2(PiBot):
                 self.l_pwm.ChangeDutyCycle(l)
                 self.r_pwm.ChangeDutyCycle(r)
                 time.sleep(0.01)
-
+        """
         # set duty for both motors
         self.l_pwm.ChangeDutyCycle(0)
         self.r_pwm.ChangeDutyCycle(0)
