@@ -1,8 +1,5 @@
-## Robotic System to visualize emergence of interesting policies learned by different RL algorithms.
+## RealDilemma: RaspberryPI + ROBOT
+Project uses RPI 4 model B 8GB Ram
 
 ### System overview
-
-
-## Object Detection
-
-Object detection used for overhead mapping of system. Uses tensorflow object detection API can be installed using installations.sh
+See Pi/PiBot.md for details on robot
