@@ -1,16 +1,16 @@
 #!bin/bash
 # on a fresh pi:
 pip3 install virtualenv
-cd ./envs/tf2_stable_baselines
+cd ~
 virtualenv tf2_stable_baselines
-cd bin
+cd tf2_stable_baselines/bin
 source ./activate
-cd ../
+cd ../../RealDilemma
 pip install -r requirements.txt
 pip3 install -U numpy
 
 # install local packages
-cd ../../Pi
+cd Pi
 pip install -e  PiBot # PiBot is also a package in pip so need to be careful bout this
 cd ../src/DRL
 pip install -e gym-pibot
