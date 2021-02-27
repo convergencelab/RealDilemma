@@ -143,34 +143,6 @@ class PiBot2(PiBot):
         output.append(self.get_ultrasound())
         score = []
         t = n / self._us_res  # time to sleep per ultrasound reading
-
-        # to allow for smooth starting #
-        """
-        if move_b:
-            L = duty * pwm_thres[0]
-            R = duty * pwm_thres[1]
-            # reset duty for both motors
-            #self.l_pwm.ChangeDutyCycle(0)
-            #self.r_pwm.ChangeDutyCycle(0)
-            #GPIO.output(self.GPIO_RIGHT_PWM, True)
-            #GPIO.output(self.GPIO_LEFT_PWM, True)
-            for i in range(self._starting_factor-1):
-                l_p = L / (self._starting_factor - i)
-                r_p = R / (self._starting_factor - i)
-                #GPIO.output(self.GPIO_RIGHT_PWM, False)
-                #GPIO.output(self.GPIO_LEFT_PWM, False)
-                self.l_pwm.ChangeDutyCycle(l_p)
-                self.r_pwm.ChangeDutyCycle(r_p)
-                GPIO.output(self.GPIO_RIGHT_PWM, True)
-                GPIO.output(self.GPIO_LEFT_PWM, True)
-                time.sleep(0.0125)
-            # account for time taken from startup #
-            t = t - (0.0125*self._starting_factor-1)/self._us_res
-        else:
-            # account for time taken from stopping #
-            t = t - (0.01*self._stopping_factor)/self._us_res
-        """
-
         # actual travel time #
         for i in range(self._us_res):
             # set duty for both motors
@@ -191,18 +163,7 @@ class PiBot2(PiBot):
             if total_score <= self._min_score:
                 # if there is not a significant amount of good, make it bad
                 total_score = -total_score
-        """
-        # to allow for smooth stopping #
-        if move_f:
-            l = duty * pwm_thres[0]
-            r = duty * pwm_thres[1]
-            for i in range(self._stopping_factor):
-                l = l/(i+1)
-                r = r/(i+1)
-                self.l_pwm.ChangeDutyCycle(l)
-                self.r_pwm.ChangeDutyCycle(r)
-                time.sleep(0.01)
-        """
+
         # set duty for both motors
         self.l_pwm.ChangeDutyCycle(0)
         self.r_pwm.ChangeDutyCycle(0)
