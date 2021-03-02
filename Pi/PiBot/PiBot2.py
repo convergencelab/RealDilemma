@@ -11,7 +11,6 @@ class PiBot2(PiBot):
     change nature of turning
 
     UPDATE ultrasound as seperate thread
-
     """
     # variables for actions #
     # left and right motors, we can adjust this as we please #
@@ -47,8 +46,13 @@ class PiBot2(PiBot):
         self._stopping_factor = stopping_factor
         # redefine the total actions as a int score #
         self._total_actions = 0
-        # state is now just a 3-tuple
-        self._state = 0,0,0
+        # state is now just a 4-tuple
+        self._state = {
+            "action":np.int64(0),
+            "us_readings":np.zeros(self._us_res),
+            "score":np.zeros(self._us_res),
+            "total_score":np.array([0])
+        }
         self._ultrasound = 0
         self._start_ultrasound()
 
@@ -81,7 +85,7 @@ class PiBot2(PiBot):
         GPIO.output(self.GPIO_LEFT_FORWARD, True)
         GPIO.output(self.GPIO_LEFT_BACKWARD, False)
         # move robot in designated direction
-        return self._travel(duty, n, self._forwards_motor_pwm, move_f=True)
+        return self._travel(duty, n, self._forwards_motor_pwm, 0)
 
     def backward(self, duty, n):
         """
@@ -96,7 +100,7 @@ class PiBot2(PiBot):
         GPIO.output(self.GPIO_LEFT_FORWARD, False)
         GPIO.output(self.GPIO_LEFT_BACKWARD, True)
         # move robot in designated direction
-        return self._travel(duty, n, self._backwards_motor_pwm, move_b=True)
+        return self._travel(duty, n, self._backwards_motor_pwm, 1)
 
     def turn_cw(self, duty, n):
         """
@@ -112,7 +116,7 @@ class PiBot2(PiBot):
         GPIO.output(self.GPIO_RIGHT_BACKWARD, False)
         GPIO.output(self.GPIO_LEFT_FORWARD, False)
         GPIO.output(self.GPIO_LEFT_BACKWARD, True)
-        return self._travel(duty, n, self._turn_pwm_cw)
+        return self._travel(duty, n, self._turn_pwm_cw, 2)
 
     def turn_ccw(self, duty, n):
         """
@@ -128,17 +132,18 @@ class PiBot2(PiBot):
         GPIO.output(self.GPIO_RIGHT_BACKWARD, True)
         GPIO.output(self.GPIO_LEFT_FORWARD, True)
         GPIO.output(self.GPIO_LEFT_BACKWARD, False)
-        return self._travel(duty, n, self._turn_pwm_ccw)
+        return self._travel(duty, n, self._turn_pwm_ccw, 3)
 
-    def stop(self, n):
+    def stop(self, duty, n):
         GPIO.output(self.GPIO_RIGHT_FORWARD, False)
         GPIO.output(self.GPIO_RIGHT_BACKWARD, False)
         GPIO.output(self.GPIO_LEFT_FORWARD, False)
         GPIO.output(self.GPIO_LEFT_BACKWARD, False)
-        self.l_pwm.ChangeDutyCycle(0)
-        self.r_pwm.ChangeDutyCycle(0)
-        time.sleep(n)
-    def _travel(self, duty, n, pwm_thres, move_f=False, move_b=False):
+        # time.sleep(n)
+        self._travel(duty=0, n=n, pwm_thres=[0,0], action=4)
+
+
+    def _travel(self, duty, n, pwm_thres, action):
         """
         helper function for forwards and backwards, left and right motion
         :param n:
@@ -147,8 +152,8 @@ class PiBot2(PiBot):
         :param move_x: allow for smoother stopping in x travel
         :return:
         """
-        output = []
-        output.append(self.get_ultrasound())
+        us_readings = []
+        us_readings.append(self.get_ultrasound())
         score = []
         t = n / self._us_res  # time to sleep per ultrasound reading
         # actual travel time #
@@ -162,8 +167,8 @@ class PiBot2(PiBot):
             time.sleep(t)
             GPIO.output(self.GPIO_RIGHT_PWM, False)
             GPIO.output(self.GPIO_LEFT_PWM, False)
-            output.append(self.get_ultrasound())
-            if output[i + 1] >= self._us_thres:  # if reading is greater than or equal to the thres
+            us_readings.append(self.get_ultrasound())
+            if us_readings[i + 1] >= self._us_thres:  # if reading is greater than or equal to the thres
                 score.append(1)
             else:
                 score.append(0)
@@ -175,11 +180,17 @@ class PiBot2(PiBot):
         # set duty for both motors
         self.l_pwm.ChangeDutyCycle(0)
         self.r_pwm.ChangeDutyCycle(0)
-        # update state, set last action taken and read ultrasound sensor
-        self._state = 0, output, score
-        self._total_actions += total_score
 
-        return total_score, output, score
+        self._total_actions += total_score
+        # update state, set last action taken and read ultrasound sensor
+        self._state = 0, us_readings, score, total_score
+        self._state = {
+            "action": np.int64(action),
+            "us_readings": np.array(us_readings),
+            "score": np.array(score),
+            "total_score": np.array(total_score)
+        }
+        # return total_score, output, score
 
     def get_ultrasound(self):
         return self._ultrasound
