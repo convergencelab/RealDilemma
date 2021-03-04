@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="208e8e31-4bb5-437d-bd0d-4ac50d253576" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/RealDilemma.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RealDilemma.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DRL/VAE.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/DRL/VAE.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_node/ObjectDetection/training/inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_node/ObjectDetection/training/inference.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +14,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ohmRbSEbqhSRBavxS4wjGKNasY" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -67,6 +66,8 @@
       <workItem from="1613747189836" duration="1222000" />
       <workItem from="1613853120520" duration="42000" />
       <workItem from="1613853163715" duration="5687000" />
+      <workItem from="1614872303440" duration="70000" />
+      <workItem from="1614872374634" duration="732000" />
     </task>
     <servers />
   </component>
@@ -83,6 +84,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RealDilemma$example_model.coverage" NAME="example_model Coverage Results" MODIFIED="1613926492987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../../../../NUmerai/numerai_datasets" />

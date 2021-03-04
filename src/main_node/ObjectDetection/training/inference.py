@@ -19,10 +19,8 @@ from PIL import Image
 import matplotlib.pyplot as plt
 import warnings
 warnings.filterwarnings('ignore')   # Suppress Matplotlib warnings
-LABELMAP: str = r"src/ObjectDetection/data/training/annotations/label_map.pbtxt" # to be used for model inference
-IMG_DIR: str = r"src/ObjectDetection/data/inference/*"
 
-def run_inference(PATH_TO_CFG: str, PATH_TO_CKPT: str, PATH_TO_LABELS: str, IMAGE_PATHS: str, OUTPUT_DIR: str, CKPT_NUM: str) -> None:
+def run_inference(PATH_TO_CFG: str, PATH_TO_CKPT: str, PATH_TO_LABELS: str, IMAGE_PATHS: str, OUTPUT_DIR: str, CKPT_NUM: str, oh_stream) -> None:
     """
     This function is adapted *very closely* from:
     https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/auto_examples/plot_object_detection_checkpoint.html
@@ -79,64 +77,18 @@ def run_inference(PATH_TO_CFG: str, PATH_TO_CKPT: str, PATH_TO_LABELS: str, IMAG
         """
         return np.array(Image.open(path))
 
-
-    for i, image_path in enumerate(IMAGE_PATHS):
-
-        print('Running inference for {}... '.format(image_path), end='')
-        image_np = load_image_into_numpy_array(image_path)
-        input_tensor = tf.convert_to_tensor(np.expand_dims(image_np, 0), dtype=tf.float32)
+    while True:
+        # image_np = load_image_into_numpy_array(image_path)
+        frame = oh_stream.getframe()
+        input_tensor = tf.convert_to_tensor(np.expand_dims(frame, 0), dtype=tf.float32)
         detections = detect_fn(input_tensor)
-
-
-
-        # All outputs are batches tensors.
-        # Convert to numpy arrays, and take index [0] to remove the batch dimension.
-        # We're only interested in the first num_detections.
         num_detections = int(detections.pop('num_detections'))
         detections = {key: value[0, :num_detections].numpy()
                       for key, value in detections.items()}
-        detections['num_detections'] = num_detections
+        print(detections['num_detections'])
+        print(detections['detection_boxes'])
+    # we will need to send this infor to all the diff pis
 
-        # detection_classes should be ints.
-        detections['detection_classes'] = detections['detection_classes'].astype(np.int64)
-
-        try:
-            json_det = detections.copy()
-            # "jsonify" outputs
-            for k in json_det.keys():
-                if isinstance(json_det[k], np.ndarray):
-                    json_det[k] = detections[k].tolist()
-            with open(f'{OUTPUT_DIR}/inference{i}.json', 'w') as fp:
-                json.dump(json_det, fp)
-        except FileNotFoundError:
-            os.mkdir(OUTPUT_DIR)
-            # "jsonify" outputs
-            for k in json_det.keys():
-                if isinstance(json_det[k], np.ndarray):
-                    json_det[k] = json_det[k].tolist()
-            with open(f'{OUTPUT_DIR}/inference{i}.json', 'w') as fp:
-                json.dump(json_det, fp)
-
-        label_id_offset = 1
-        image_np_with_detections = image_np.copy()
-
-        viz_utils.visualize_boxes_and_labels_on_image_array(
-                image_np_with_detections,
-                detections['detection_boxes'],
-                detections['detection_classes']+label_id_offset,
-                detections['detection_scores'],
-                category_index,
-                use_normalized_coordinates=True,
-                max_boxes_to_draw=3,
-                min_score_thresh=.30,
-                agnostic_mode=False)
-
-        plt.figure()
-        plt.imshow(image_np_with_detections)
-        print('Done')
-        if not os.path.isdir(f"{OUTPUT_DIR}/inference"):
-            os.mkdir(f"{OUTPUT_DIR}/inference")
-        plt.imsave(f"{OUTPUT_DIR}/inference{i}.png", image_np_with_detections)
 
 
 def inference_test() -> None:
