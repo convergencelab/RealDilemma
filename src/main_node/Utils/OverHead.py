@@ -13,6 +13,7 @@ class VideoStream:
         # initialize the variable used to indicate if the thread should
         # be stopped
         self.stopped = False
+        self.show = True
     def start(self):
         # start the thread to read frames from the video stream
         Thread(target=self.update, args=()).start()
@@ -26,6 +27,13 @@ class VideoStream:
                 return
             # otherwise, read the next frame from the stream
             (self.grabbed, self.frame) = self.stream.read()
+            if self.show:
+                cv2.imshow('RealDilemma', self.frame)
+            key = cv2.waitKey(1)
+            if key == ord('q'):
+                self.capture.release()
+                cv2.destroyAllWindows()
+                exit(1)
 
     def read(self):
         # return the frame most recently read
@@ -35,8 +43,9 @@ class VideoStream:
         # indicate that the thread should be stopped
         self.stopped = True
 
+
 class OverHead:
-    def __init__(self, url: str = 'http://192.168.2.163:8080/video') -> None:
+    def __init__(self, url: str = 'http://192.168.2.15:8080/video') -> None:
         # create a *threaded* video stream, allow the camera sensor to warmup,
         self.stream = VideoStream(url).start()
 
