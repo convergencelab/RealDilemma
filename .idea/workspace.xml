@@ -2,13 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="208e8e31-4bb5-437d-bd0d-4ac50d253576" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Pi_to_main/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pi_to_main/client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pi_to_main/networking.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Pi_to_main/server.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_node/ObjectDetection/training/inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_node/ObjectDetection/training/inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_node/ObjectDetection/OverHead.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_node/OverHead.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_node/stream_oh_inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_node/stream_oh_inference.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,7 +37,19 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\NoahB\Desktop\School\fourth year (2020-2021)\ROBOTHESIS\RealDilemma\src\main_node" />
+      <recent name="C:\Users\NoahB\Desktop\School\fourth year (2020-2021)\ROBOTHESIS\RealDilemma\src\main_node\ObjectDetection" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="example_model" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -67,7 +92,7 @@
       <workItem from="1613853120520" duration="42000" />
       <workItem from="1613853163715" duration="5687000" />
       <workItem from="1614872303440" duration="70000" />
-      <workItem from="1614872374634" duration="732000" />
+      <workItem from="1614872374634" duration="4438000" />
     </task>
     <servers />
   </component>

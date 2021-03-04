@@ -1,4 +1,4 @@
-from ObjectDetection.OverHead import OverHead
+from src.main_node.OverHead import OverHead
 from ObjectDetection.training.inference import run_inference
 LABELMAP: str = r"src/ObjectDetection/data/training/annotations/label_map.pbtxt" # to be used for model inference
 IMG_DIR: str = r"src/ObjectDetection/data/inference/*"
