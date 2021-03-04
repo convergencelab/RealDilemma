@@ -46,15 +46,16 @@ class PiBot2(PiBot):
         self._stopping_factor = stopping_factor
         # redefine the total actions as a int score #
         self._total_actions = 0
-        # state is now just a 4-tuple
-        self._state = {
-            "action":np.int64(0),
-            "us_readings":np.zeros(self._us_res),
-            "score":np.zeros(self._us_res),
-            "total_score":np.array([0])
-        }
+        # state is now just a 3-tuple
+        self._state = np.zeros(3)
         self._ultrasound = 0
         self._start_ultrasound()
+
+    def reset(self):
+        self._total_actions = 0
+        # state is now just a 3-tuple
+        self._state = np.zeros(3)
+        self._ultrasound = 0
 
     def _start_ultrasound(self):
         """
@@ -155,9 +156,13 @@ class PiBot2(PiBot):
         us_readings = []
         us_readings.append(self.get_ultrasound())
         score = []
+        if us_readings[0] >= self._us_thres:  # if reading is greater than or equal to the thres
+            score.append(1)
+        else:
+            score.append(0)
         t = n / self._us_res  # time to sleep per ultrasound reading
         # actual travel time #
-        for i in range(self._us_res):
+        for i in range(self._us_res-1):
             # set duty for both motors
             # pwm thres is hyper param that varies for each direction
             self.l_pwm.ChangeDutyCycle(duty*pwm_thres[0])
@@ -167,29 +172,33 @@ class PiBot2(PiBot):
             time.sleep(t)
             GPIO.output(self.GPIO_RIGHT_PWM, False)
             GPIO.output(self.GPIO_LEFT_PWM, False)
-            us_readings.append(self.get_ultrasound())
-            if us_readings[i + 1] >= self._us_thres:  # if reading is greater than or equal to the thres
+            us = self.get_ultrasound()
+            us_readings.append(us)
+            if us >= self._us_thres:  # if reading is greater than or equal to the thres
                 score.append(1)
             else:
                 score.append(0)
             total_score = sum(score)
-            if total_score <= self._min_score:
+            #if total_score <= self._min_score:
                 # if there is not a significant amount of good, make it bad
-                total_score = -total_score
+             #   total_score = -total_score
 
         # set duty for both motors
         self.l_pwm.ChangeDutyCycle(0)
         self.r_pwm.ChangeDutyCycle(0)
-
-        self._total_actions += total_score
+        self._total_actions+=total_score
+        #self._total_actions = max(0, total_score+self._total_actions)
         # update state, set last action taken and read ultrasound sensor
-        self._state = 0, us_readings, score, total_score
-        self._state = {
-            "action": np.int64(action),
-            "us_readings": np.array(us_readings),
-            "score": np.array(score),
-            "total_score": np.array(total_score)
-        }
+        #self._state = 0, us_readings, score, total_score
+        # self._state = {
+        #     "action": np.int64(action),
+        #     "us_readings": np.array(us_readings, dtype=np.float32),
+        #     "score": np.array(score, dtype=np.float32),
+        #     "total_score": np.array([total_score], dtype=np.float32)
+        # }
+        self._state[0] = action # action taken
+        self._state[1] = sum(np.diff(us_readings)) # dx
+        self._state[2] = sum(score)# sum of score for movement
         # return total_score, output, score
 
     def get_ultrasound(self):

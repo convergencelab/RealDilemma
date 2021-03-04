@@ -15,9 +15,9 @@ class PiBotEnv2(gym.Env):
   """
   metadata = {'render.modes': ['human']}
 
-  def __init__(self):
+  def __init__(self, PiBot):
       super(PiBotEnv2, self).__init__()
-      self.PiBot = PiBot2() # we are using the newer pibot
+      self.PiBot = PiBot # we are using the newer pibot
       self.CONTROL_LOOKUP = {
           0: self.PiBot.forward,
           1: self.PiBot.backward,
@@ -28,20 +28,13 @@ class PiBotEnv2(gym.Env):
       }
 
       self.reward_range = (0, MAX_REWARD)
-      self.action_space = spaces.Dict({
-          "Action": spaces.Discrete(4),
-          "PWM": spaces.Box(low=np.array([0]), high=np.array([100])),
-          "Time": spaces.Box(low=np.array([0]), high=np.array([5]))
-      }
-      )
-      # Initial observation will just be the ultrasound sensor and amount of distance travelled (either forward or backward)
-      #self.observation_space = spaces.Box(low=np.array([0, 0]), high=np.array([4, 1000]), dtype=np.int32)
-      self.observation_space = spaces.Dict({
-            "action":spaces.Discrete(4),
-            "us_readings":spaces.Box(low=np.zeros(self.PiBot._us_res), high=np.full(self.PiBot._us_res, 5000)),
-            "score":spaces.Box(low=np.zeros(self.PiBot._us_res), high=np.full(self.PiBot._us_res, 1)),
-            "total_score":spaces.Box(low=np.array([0]), high=np.array([MAX_REWARD]))
-        })
+      self.action_space = spaces.MultiDiscrete([5,# action
+                                                100,# PWM
+                                                5]# time
+                                                )
+      # action, diff(us_readings), total_score
+      self.observation_space = spaces.Box(low=np.full(3, -5000), high=np.full(3, 5000), dtype=np.float32)
+
   def reset(self):
     """
     no reset for this one
@@ -50,7 +43,7 @@ class PiBotEnv2(gym.Env):
     # initial condition
 
     self.PiBot.reset()
-    state = self.PiBot.get_state()
+    state = self._get_state()
 
     return state
 
@@ -64,17 +57,16 @@ class PiBotEnv2(gym.Env):
       self.do_action(action)
       reward = self._get_reward()
       ob = self._get_state()
-      print(ob)
       # sum of actions >= energy thres
-      done = bool(sum(self.PiBot.get_total_actions()) >= ENERGY_THRES)
+      done = bool(self.PiBot.get_total_actions() >= ENERGY_THRES)
 
       return ob, reward, done, {}
 
   def do_action(self, action):
       """ Converts the action space into PiBot action"""
-      do = self.CONTROL_LOOKUP[action["Action"]]
-      duty  = action["PWM"]
-      time = action["Time"]
+      do = self.CONTROL_LOOKUP[action[0]]
+      duty  = action[1]
+      time = action[2]
       # perform action
       do(duty, time)
 
@@ -84,9 +76,9 @@ class PiBotEnv2(gym.Env):
       :return:
       """
       # maximize amount of movement, maximize distance in ultrasound sensor
-      _, us_readings, score, total_score = self._get_state()
-      del_x  = self._score_grad_1d(us_readings)
-      reward = total_Score + del_x# an increase in distance + remaining in distance thres
+      state = self._get_state()
+      # diff(X) + score
+      reward = state[1] + state[2]
       return reward
 
   def _score_grad_1d(self, us_Readings):
@@ -109,7 +101,6 @@ class PiBotEnv2(gym.Env):
 
   def close(self):
       del self.PiBot
-      # pass
 
 
 

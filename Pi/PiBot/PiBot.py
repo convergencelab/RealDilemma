@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 import numpy as np
+import sys
 """
 Abstract actions from algorithm:
 """
@@ -21,8 +22,6 @@ class PiBot:
                  GPIO_RIGHT_BACKWARD: int = 31,
                  GPIO_RIGHT_PWM: int = 26):
 
-        GPIO.setmode(GPIO.BOARD)
-        GPIO.setwarnings(False)
         # pins
         self.GPIO_SERVO: int = GPIO_SERVO
         self.GPIO_TRIGGER: int = GPIO_TRIGGER
@@ -35,20 +34,20 @@ class PiBot:
         self.GPIO_RIGHT_PWM: int = GPIO_RIGHT_PWM
 
         # setup GPIO
-        GPIO.setup(self.GPIO_TRIGGER, GPIO.OUT)  # output
-        GPIO.setup(self.GPIO_ECHO, GPIO.IN)  # input
+        GPIO.setmode(GPIO.BOARD)
+        GPIO.setwarnings(False)
         GPIO.setup(self.GPIO_SERVO, GPIO.OUT)
         GPIO.setup(self.GPIO_LEFT_PWM, GPIO.OUT)  # en1
-        GPIO.setup(self.GPIO_LEFT_FORWARD, GPIO.OUT)  # IN1
-        GPIO.setup(self.GPIO_LEFT_BACKWARD, GPIO.OUT)  # IN2
         GPIO.setup(self.GPIO_RIGHT_PWM, GPIO.OUT)  # EN2
-        GPIO.setup(self.GPIO_RIGHT_FORWARD, GPIO.OUT)  # IN4
-        GPIO.setup(self.GPIO_RIGHT_BACKWARD, GPIO.OUT)  # IN3
         self.servo = GPIO.PWM(self.GPIO_SERVO, 100)  # 11 = pin, 50 = 50hz
-
-        # motors
         self.l_pwm = GPIO.PWM(self.GPIO_LEFT_PWM, 100)
         self.r_pwm = GPIO.PWM(self.GPIO_RIGHT_PWM, 100)
+        GPIO.setup(self.GPIO_TRIGGER, GPIO.OUT)  # output
+        GPIO.setup(self.GPIO_ECHO, GPIO.IN)  # input
+        GPIO.setup(self.GPIO_LEFT_FORWARD, GPIO.OUT)  # IN1
+        GPIO.setup(self.GPIO_LEFT_BACKWARD, GPIO.OUT)  # IN2
+        GPIO.setup(self.GPIO_RIGHT_FORWARD, GPIO.OUT)  # IN4
+        GPIO.setup(self.GPIO_RIGHT_BACKWARD, GPIO.OUT)  # IN3
 
         # start PWM
         self.servo.start(0)  # 0 -> pulse off
@@ -201,11 +200,9 @@ class PiBot:
         return self._total_actions
 
     def reset(self):
-        self.l_pwm.stop()
-        self.r_pwm.stop()
-        self.servo.stop()
-        GPIO.cleanup()
-        self.__init__()
+        self._total_actions = np.zeros(5)
+        self._state = np.zeros(2, dtype=np.int32)
+        
 
 
     def test(self):
