@@ -18,7 +18,7 @@ else:
 
 def main_train_and_test():
     if not IS_PI:
-        # oh_stream = OverHead()
+        oh_stream = OverHead()
         # model = ('ssd_mobilenet_v2_320x320_coco17_tpu-8', 3)
         # run(model, oh_stream)
         threading.Thread(target=subscribe, args=()).start()
