@@ -11,8 +11,8 @@ def main():
         # 'efficientdet_d0_coco17_tpu-32': 3,
         'ssd_mobilenet_v2_320x320_coco17_tpu-8': 3
     }"""
-    model = ('ssd_mobilenet_v2_320x320_coco17_tpu-8', 3)
-    run(model, oh_stream)
+    #model = ('ssd_mobilenet_v2_320x320_coco17_tpu-8', 3)
+    #run(model, oh_stream)
 
 if __name__ == "__main__":
 
