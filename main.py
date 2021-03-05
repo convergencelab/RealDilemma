@@ -1,22 +1,42 @@
-from src.main_node.Utils import OverHead
-from src.main_node.Utils.stream_oh_inference import run
+from src.main_node.Communication.main_node import *
+import settings
+"""
+determine if main or pi
+"""
+import socket
+hostname = socket.gethostname()
+if hostname in settings.PI_HOST_NAMES:
+    IS_PI = True
+    from src.DRL.run_session import train_and_test_bots
+elif hostname == settings.MAIN_NODE_HOST_NAME:
+    IS_PI = False
+    from src.main_node.Utils import OverHead
+    # from src.main_node.Utils.stream_oh_inference import run
+else:
+    raise Exception("Must configure this device in settings.py")
 
-def main():
-    oh_stream = OverHead()
-    """ for model we can choose any one we already have downloaded
-    model_dict = {
-        # 'ssd_resnet50_v1_fpn_640x640_coco17_tpu-8': 9,
-        # 'faster_rcnn_inception_resnet_v2_640x640_coco17_tpu-8': 2,
-        # 'centernet_resnet50_v1_fpn_512x512_coco17_tpu-8': 2,
-        # 'efficientdet_d0_coco17_tpu-32': 3,
-        'ssd_mobilenet_v2_320x320_coco17_tpu-8': 3
-    }"""
-    #model = ('ssd_mobilenet_v2_320x320_coco17_tpu-8', 3)
-    #run(model, oh_stream)
+def main_train_and_test():
+    if not IS_PI:
+        oh_stream = OverHead()
+        # model = ('ssd_mobilenet_v2_320x320_coco17_tpu-8', 3)
+        # run(model, oh_stream)
+        sendall("1") # initiate all bots
+        msg = wait_for_msg()
+        print(msg)
+    else:
+        msg = wait_for_msg()
+        if msg == "1":
+            #outcome = train_and_test_bot()
+            outcome = "testing this out"
+            addr = socket.gethostbyname(hostname)
+            send(outcome, settings.MAIN_NODE_HOST_NAME)
+
+
+
 
 if __name__ == "__main__":
 
-    main()
-
+    # main()
+    main_train_and_test()
 
     
