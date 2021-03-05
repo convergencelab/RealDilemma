@@ -9,9 +9,9 @@ hostname = socket.gethostname()
 if hostname in settings.PI_HOST_NAMES:
     IS_PI = True
     from src.DRL.run_session import train_and_test_bot
-elif hostname == settings.MAIN_NODE_HOST_NAME:
+elif hostname == settings.PC:
     IS_PI = False
-    from src.main_node.Utils.OverHead import OverHead
+    #from src.main_node.Utils.OverHead import OverHead
     # from src.main_node.Utils.stream_oh_inference import run
 else:
     raise Exception("Must configure this device in settings.py")
@@ -22,8 +22,6 @@ def main_train_and_test():
         # model = ('ssd_mobilenet_v2_320x320_coco17_tpu-8', 3)
         # run(model, oh_stream)
         threading.Thread(target=subscribe, args=()).start()
-        while True:
-            print(read_output_file())
     else:
         while True:
             outcome = input()

@@ -16,7 +16,8 @@ def publish_data(data):
     os.system(f" mosquitto_pub -h {MAIN_NODE_HOST_NAME} -t {H_TITLE} -m {data}")
 
 def subscribe():
-    os.system(f" mosquitto_sub -h {MAIN_NODE_HOST_NAME} -t {H_TITLE} > {OUTPUT_FILE}")
+    s = f" mosquitto_sub -h {MAIN_NODE_HOST_NAME} -t {H_TITLE} > {OUTPUT_FILE}"
+    os.system(s)
 
 def read_output_file():
     with open(OUTPUT_FILE, "r") as f:

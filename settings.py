@@ -1,3 +1,5 @@
+import socket
+import os
 """
 To set some things straight
 """
@@ -5,8 +7,16 @@ POLICYF = "/home/pi/RealDilemma/src/DRL/test/policies.json"
 TRAINF = "/home/pi/RealDilemma/src/DRL/train/saved_models"
 
 MAIN_NODE_HOST_NAME = 'Jimi'
+PC = 'DESKTOP-5F7T77V'
 H_TITLE = "PI_DRL"
-OUTPUT_FILE = "/home/pi/RealDilemma/actions.txt"
+
+hostname = socket.gethostname()
+if hostname == PC:
+    # ensure that mosquitto is in the path
+    OUTPUT_FILE = r".\actions.txt"
+else:
+    OUTPUT_FILE = "/home/pi/RealDilemma/actions.txt"
+
 RPIS = {
           "Jimi": "192.168.137.63"
         }
