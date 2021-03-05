@@ -6,7 +6,7 @@ virtualenv tf2_stable_baselines
 cd tf2_stable_baselines/bin
 source ./activate
 cd ../../RealDilemma
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 pip3 install -U numpy
 
 # install local packages

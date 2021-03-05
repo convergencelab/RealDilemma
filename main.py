@@ -7,7 +7,7 @@ import socket
 hostname = socket.gethostname()
 if hostname in settings.PI_HOST_NAMES:
     IS_PI = True
-    from src.DRL.run_session import train_and_test_bots
+    from src.DRL.run_session import train_and_test_bot
 elif hostname == settings.MAIN_NODE_HOST_NAME:
     IS_PI = False
     from src.main_node.Utils import OverHead

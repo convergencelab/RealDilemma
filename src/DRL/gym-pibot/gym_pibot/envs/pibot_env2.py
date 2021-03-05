@@ -1,7 +1,7 @@
 import gym
 from gym import error, spaces, utils
 from gym.utils import seeding
-from PiBot2 import PiBot2
+from src.Pi.PiBot.PiBot2 import PiBot2
 import numpy as np
 
 ENERGY_THRES = 4000# thres for total amount of different motors used in robo

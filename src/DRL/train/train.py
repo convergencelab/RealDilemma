@@ -8,7 +8,7 @@ from stable_baselines.common.vec_env import DummyVecEnv
 from stable_baselines.common.env_checker import check_env
 from stable_baselines import PPO2, A2C
 from gym_pibot.envs.pibot_env2 import PiBotEnv2
-from PiBot2 import PiBot2
+from src.Pi.PiBot.PiBot2 import PiBot2
 from functools import partial
 
 from settings import TRAINF, POLICYF

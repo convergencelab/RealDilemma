@@ -1,3 +1,5 @@
+from settings import POLICYF
+
 import json
 with open(POLICYF, "r") as f:
     POLICIES = json.load(f)

@@ -2,7 +2,7 @@
 To set some things straight
 """
 POLICYF = "/home/pi/RealDilemma/src/DRL/test/policies.json"
-TRAIN_DIR = "/home/pi/RealDilemma/src/DRL/train/saved_models"
+TRAINF = "/home/pi/RealDilemma/src/DRL/train/saved_models"
 
 MAIN_NODE_HOST_NAME = 'DESKTOP-5F7T77V'
 RPIS = {

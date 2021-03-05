@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 import numpy as np
 from threading import Thread
-from PiBot import PiBot
+from src.Pi.PiBot.PiBot import PiBot
 import socket
 
 class PiBot2(PiBot):
