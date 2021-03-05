@@ -11,7 +11,7 @@ if hostname in settings.PI_HOST_NAMES:
     from src.DRL.run_session import train_and_test_bot
 elif hostname == settings.PC:
     IS_PI = False
-    #from src.main_node.Utils.OverHead import OverHead
+    from src.main_node.Utils.OverHead import OverHead
     # from src.main_node.Utils.stream_oh_inference import run
 else:
     raise Exception("Must configure this device in settings.py")
@@ -23,9 +23,8 @@ def main_train_and_test():
         # run(model, oh_stream)
         threading.Thread(target=subscribe, args=()).start()
     else:
-        while True:
-            outcome = input()
-            publish_data(outcome)
+        actions = train_and_test_bot()
+        publish_data(actions)
 
 
 

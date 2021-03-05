@@ -10,8 +10,8 @@ MAIN_NODE_HOST_NAME = 'Jimi'
 PC = 'DESKTOP-5F7T77V'
 H_TITLE = "PI_DRL"
 
-hostname = socket.gethostname()
-if hostname == PC:
+HOSTNAME = socket.gethostname()
+if HOSTNAME == PC:
     # ensure that mosquitto is in the path
     OUTPUT_FILE = r".\actions.txt"
 else:
