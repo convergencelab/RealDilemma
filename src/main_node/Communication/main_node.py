@@ -13,11 +13,11 @@ S.bind((HOST, PORT))
 def sendall(data):
     if HOSTNAME != MAIN_NODE_HOST_NAME:
         raise Exception("sendall only for host node")
-    for _, addr in RPIS:
+    for _, addr in RPIS.items():
         send(data, addr)
 
 def send(data, addr):
-    s.sendto(data.encode('utf-8'), addr)
+    S.sendto(data.encode('utf-8'), (addr, 4000))
 
 def wait_for_msg():
     while True:
