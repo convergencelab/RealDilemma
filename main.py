@@ -1,9 +1,10 @@
-from src.main_node.Communication.main_node import *
+from src.main_node.Communication.Communication import *
 import settings
+import socket
+import threading
 """
 determine if main or pi
 """
-import socket
 hostname = socket.gethostname()
 if hostname in settings.PI_HOST_NAMES:
     IS_PI = True
@@ -20,18 +21,13 @@ def main_train_and_test():
         # oh_stream = OverHead()
         # model = ('ssd_mobilenet_v2_320x320_coco17_tpu-8', 3)
         # run(model, oh_stream)
-        sendall("1") # initiate all bots
-        print("msg sent")
-        #msg = wait_for_msg()
-        #print(msg)
+        threading.Thread(target=subscribe, args=()).start()
+        while True:
+            print(read_output_file())
     else:
-        print("waiting for msg")
-        msg = wait_for_msg()
-        if msg == "1":
-            #outcome = train_and_test_bot()
-            outcome = "testing this out"
-            addr = socket.gethostbyname(hostname)
-            send(outcome, settings.MAIN_NODE_HOST_NAME)
+        while True:
+            outcome = input()
+            publish_data(outcome)
 
 
 
