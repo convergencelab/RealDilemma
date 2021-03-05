@@ -1,4 +1,4 @@
-from src.DRL.Environment import SimplifiedRoboEnv, EvenSimplerRoboEnv
+from src.DRL.archive.Environment import SimplifiedRoboEnv, EvenSimplerRoboEnv
 import random
 import numpy as np
 import pygame

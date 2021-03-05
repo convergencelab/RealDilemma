@@ -19,7 +19,7 @@ to further train the encoder with feedback from the environment, we will be atte
 interpretation of the vision. Train in "handicapped setting" for the introduction of meaning integration.
 """
 
-from src.DRL.VAE import *
+from src.DRL.archive.VAE import *
 LATENTDIM: int = 4
 # VISION MODEL
 VISION = CVAE(LATENTDIM)

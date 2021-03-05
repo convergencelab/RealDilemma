@@ -26,6 +26,7 @@ model = PPO2(MlpPolicy, env, verbose=1)
 model.learn(total_timesteps=200)
 obs = env.reset()
 #
+def test(time_steps, ):
 for i in range(50):
   action, _states = model.predict(obs)
   print("*********ACTION************")
