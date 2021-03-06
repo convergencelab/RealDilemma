@@ -5,8 +5,6 @@ import os
 """
 connecting main node to pis
 """
-
-
 def publish_data(data):
     """
     we are susing broker service: publish data
@@ -23,5 +21,3 @@ def read_output_file():
     with open(ACTION_FILE, "r") as f:
         data = f.readlines()
     return data
-
-

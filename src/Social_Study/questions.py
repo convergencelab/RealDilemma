@@ -7,6 +7,7 @@ def get_user_input():
         data = json.load(f)
     for q in data.keys():
         data[q] = input(q)
+    log_data(data)
     return data
 
 def log_data(user_input):
