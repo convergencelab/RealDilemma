@@ -7,11 +7,12 @@ def train_and_test_bot():
     testing training and testing with bots
     :return:
     """
-    train_PPO2(200)
+    #train_PPO2(200)
     #utcome = run_policy(200)
     outcome = {"testing":100}
     outcome = json.dumps(outcome)
-    return outcome
+
+    return outcome.replace(" ", "")
 
 
 

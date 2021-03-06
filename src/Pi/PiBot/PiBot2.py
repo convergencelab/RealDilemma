@@ -3,7 +3,6 @@ import time
 import numpy as np
 from threading import Thread
 from src.Pi.PiBot.PiBot import PiBot
-import socket
 
 class PiBot2(PiBot):
     """
@@ -51,11 +50,6 @@ class PiBot2(PiBot):
         self._state = np.zeros(3)
         self._ultrasound = 0
         self._start_ultrasound()
-        # oh camera info #
-        self.host = '192.168.2.43'  # Server ip
-        self.port = 4000
-        self.s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        self.s.bind((self.host, self.port))
 
 
     def reset(self):

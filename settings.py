@@ -22,3 +22,5 @@ RPIS = {
         }
 
 PI_HOST_NAMES = RPIS.keys()
+
+VIDEO_STREAM = "http://141.109.108.67:8080/video"
