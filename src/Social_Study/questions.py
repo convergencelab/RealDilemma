@@ -9,7 +9,7 @@ def get_user_input():
         data[q] = input(q)
     return data
 
-def log_data(user_input, policy_displayed):
+def log_data(user_input):
     """
     we will save the policy displayed as json
 
@@ -19,5 +19,5 @@ def log_data(user_input, policy_displayed):
     :return:
     """
     with open(RESPONSE_FILE, "w") as f:
-        json.dump(data, f)
+        json.dump(user_input, f)
 

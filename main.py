@@ -2,6 +2,7 @@ from src.main_node.Communication.Communication import *
 import settings
 import socket
 import threading
+from src.Social_Study import questions
 """
 determine if main or pi
 """
@@ -22,6 +23,8 @@ def main_train_and_test():
         # model = ('ssd_mobilenet_v2_320x320_coco17_tpu-8', 3)
         # run(model, oh_stream)
         threading.Thread(target=subscribe, args=()).start()
+        answers = questions.get_user_input()
+        questions.log_data(answers)
     else:
         actions = train_and_test_bot()
         publish_data(actions)

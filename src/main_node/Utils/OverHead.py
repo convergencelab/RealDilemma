@@ -1,6 +1,7 @@
 # import the necessary packages
 from threading import Thread
 import cv2
+from settings import VIDEO_STREAM
 class VideoStream:
     """
     threaded stream for camera
@@ -45,7 +46,7 @@ class VideoStream:
 
 
 class OverHead:
-    def __init__(self, url: str = 'http://192.168.2.15:8080/video') -> None:
+    def __init__(self, url: str = VIDEO_STREAM) -> None:
         # create a *threaded* video stream, allow the camera sensor to warmup,
         self.stream = VideoStream(url).start()
 
