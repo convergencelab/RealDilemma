@@ -18,7 +18,7 @@ if HOSTNAME == PC:
 else:
     ACTION_FILE = "/home/pi/RealDilemma/actions.txt"
     RESPONSE_FILE = r"/home/pi/RealDilemma/responses.json"
-    
+
 QUESTIONS_FILE = "./Questions.json"
 RPIS = {
           "Jimi": "192.168.137.63"
