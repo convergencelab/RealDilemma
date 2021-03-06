@@ -4,7 +4,7 @@ import os
 To set some things straight
 """
 POLICYF = "/home/pi/RealDilemma/src/DRL/test/policies.json"
-TRAINF = "/home/pi/RealDilemma/src/DRL/train/saved_models"
+TRAIN_DIR = "/home/pi/RealDilemma/src/DRL/train/saved_models"
 
 MAIN_NODE_HOST_NAME = 'Jimi'
 PC = 'DESKTOP-5F7T77V'
@@ -21,7 +21,8 @@ else:
 
 QUESTIONS_FILE = "./Questions.json"
 RPIS = {
-          "Jimi": "192.168.137.63"
+          "Jimi": "192.168.137.63",
+          "Frank": "192.168.137.118"
         }
 
 PI_HOST_NAMES = RPIS.keys()

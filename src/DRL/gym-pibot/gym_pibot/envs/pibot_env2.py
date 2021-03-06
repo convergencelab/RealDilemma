@@ -29,7 +29,7 @@ class PiBotEnv2(gym.Env):
 
       self.reward_range = (0, MAX_REWARD)
       self.action_space = spaces.MultiDiscrete([5,# action
-                                                100,# PWM
+                                                5,# PWM
                                                 5]# time
                                                 )
       # action, diff(us_readings), total_score
@@ -65,7 +65,7 @@ class PiBotEnv2(gym.Env):
   def do_action(self, action):
       """ Converts the action space into PiBot action"""
       do = self.CONTROL_LOOKUP[action[0]]
-      duty  = action[1]
+      duty  = 100 - action[1]
       time = action[2]
       # perform action
       do(duty, time)
