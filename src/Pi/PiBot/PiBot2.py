@@ -72,7 +72,7 @@ class PiBot2(PiBot):
             if self.stop_us:
                 return
             self._ultrasound = self.read_ultrasound()
-
+    """
     def _start_comm(self):
         # start the thread to read frames from the video stream
         Thread(target=self.update, args=()).start()
@@ -89,7 +89,7 @@ class PiBot2(PiBot):
             data = data.upper()
             print("Sending: " + data)
             self.s.sendto(data.encode('utf-8'), addr)
-
+    """
     def forward(self, duty, n):
         """
         move forward: action = 0

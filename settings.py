@@ -13,10 +13,13 @@ H_TITLE = "PI_DRL"
 HOSTNAME = socket.gethostname()
 if HOSTNAME == PC:
     # ensure that mosquitto is in the path
-    OUTPUT_FILE = r".\actions.txt"
+    ACTION_FILE = r".\actions.txt"
+    RESPONSE_FILE = r".\responses.json"
 else:
-    OUTPUT_FILE = "/home/pi/RealDilemma/actions.txt"
-
+    ACTION_FILE = "/home/pi/RealDilemma/actions.txt"
+    RESPONSE_FILE = r"/home/pi/RealDilemma/responses.json"
+    
+QUESTIONS_FILE = "./Questions.json"
 RPIS = {
           "Jimi": "192.168.137.63"
         }

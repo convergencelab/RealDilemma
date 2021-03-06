@@ -1,14 +1,14 @@
 import json
+from settings import RESPONSE_FILE, QUESTIONS_FILE
 
-with open("./Questions.json", "r") as f:
-    data = json.load(f)
 
 def get_user_input():
-    with open("./Questions.json", "r") as f:
+    with open(QUESTIONS_FILE, "r") as f:
         data = json.load(f)
     for q in data.keys():
         data[q] = input(q)
     return data
+
 def log_data(user_input, policy_displayed):
     """
     we will save the policy displayed as json
@@ -18,5 +18,6 @@ def log_data(user_input, policy_displayed):
     :param policy_displayed:
     :return:
     """
+    with open(RESPONSE_FILE, "w") as f:
+        json.dump(data, f)
 
-print(data)
