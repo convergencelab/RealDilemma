@@ -21,16 +21,15 @@ else:
     raise Exception("Must configure this device in settings.py")
 
 def main_train_and_test():
-    if not IS_PI:
+    if not IS_PI: # main node
         #oh_stream = OverHead()
         # model = ('ssd_mobilenet_v2_320x320_coco17_tpu-8', 3)
         # run(model, oh_stream)
         threading.Thread(target=subscribe, args=()).start()
         threading.Thread(target=questions.get_user_input, args=()).start()
     else:
-        #actions = train_and_test_bot()
         pibot = PiBot2()
-        steps = 5
+        steps = 1
         train.train_session(pibot, steps)
         # publish_data(actions)
 
@@ -38,7 +37,6 @@ def main_train_and_test():
 
 
 if __name__ == "__main__":
-
     # main()
     main_train_and_test()
 

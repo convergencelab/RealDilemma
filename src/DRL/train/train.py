@@ -6,15 +6,19 @@ import datetime as dt
 from stable_baselines.common.policies import MlpPolicy, ActorCriticPolicy
 from stable_baselines.common.vec_env import DummyVecEnv
 from stable_baselines.common.env_checker import check_env
-from stable_baselines import PPO2, A2C
+from stable_baselines import PPO2, A2C, ACER, ACKTR, DQN
 from gym_pibot.envs.pibot_env2 import PiBotEnv2
 from functools import partial
 import os
 from settings import TRAIN_DIR, POLICYF, HOSTNAME
 
 TRAIN_DICT = {
+    #"ACER": partial(ACER, policy=MlpPolicy, verbose=1),
+    "ACKTR": partial(ACKTR, policy=MlpPolicy, verbose=1),
+    "DQN": partial(DQN, policy=MlpPolicy, verbose=1),
     "PPO2": partial(PPO2, policy=MlpPolicy, verbose=1),
     "A2C": partial(A2C, policy=MlpPolicy, verbose=1),
+
 
 }
 
@@ -23,6 +27,7 @@ def train_session(pibot, steps, train_dict=TRAIN_DICT):
     wrap train dict with training function
     """
     for model, func in train_dict.items():
+        print(f"TRAINING: {model}")
         train(steps, pibot, func, model)
 
 def train(steps, pibot, model, model_name) -> str:
