@@ -15,7 +15,7 @@ if HOSTNAME == PC:
     ACTION_FILE = r".\outputs\actions.txt"
     RESPONSE_FILE = r".\outputs\responses.json"
 else:
-    ACTION_FILE = "/home/pi/RealDilemma/outputs/actions.txt"
+    ACTION_FILE = "/home/pi/RealDilemma/outputs/actions.json"
     RESPONSE_FILE = r"/home/pi/RealDilemma/outputs/responses.json"
 
 QUESTIONS_FILE = "./outputs/Questions.json"

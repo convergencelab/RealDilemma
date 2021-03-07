@@ -3,7 +3,7 @@ import settings
 import socket
 import threading
 from src.SocialStudy import questions
-from src.Pi.PiBot.pibot2 import PiBot2
+from src.Pi.PiBot.PiBot2 import PiBot2
 """
 determine if main or pi
 """
@@ -29,7 +29,7 @@ def main_train_and_test():
         threading.Thread(target=questions.get_user_input, args=()).start()
     else:
         pibot = PiBot2()
-        steps = 250
+        steps = 1
         train.train_session(pibot, steps)
         # publish_data(actions)
 

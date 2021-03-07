@@ -1,6 +1,8 @@
 import gym
 from gym import error, spaces, utils
 import numpy as np
+from settings import ACTION_FILE
+import json
 
 ENERGY_THRES = 4000# thres for total amount of different motors used in robo
 MAX_REWARD = 1000
@@ -13,7 +15,7 @@ class PiBotEnv2(gym.Env):
   """
   metadata = {'render.modes': ['human']}
 
-  def __init__(self, PiBot, servo=False):
+  def __init__(self, PiBot, servo=True):
       super(PiBotEnv2, self).__init__()
       self.PiBot = PiBot
       self.SERVO = servo
@@ -25,6 +27,9 @@ class PiBotEnv2(gym.Env):
           4: self.PiBot.stop,
           5: self.PiBot._servo
       }
+      # FOR RECORDING ACTIONS TAKEN #
+      self.ACTION = []
+      self._RECORD_ACTION = False
       if self.SERVO:
           #self.reward_range = (0, MAX_REWARD)
           self.action_space = spaces.MultiDiscrete([6,# action
@@ -71,6 +76,8 @@ class PiBotEnv2(gym.Env):
       do = self.CONTROL_LOOKUP[action[0]]
       duty  = 100 - action[1]
       time = action[2]
+      if self._RECORD_ACTION:
+          self.ACTION.append(str([int(x) for x in action]))
       # perform action
       do(duty, time)
 
@@ -81,7 +88,6 @@ class PiBotEnv2(gym.Env):
       """
       # maximize amount of movement, maximize distance in ultrasound sensor
       state = self._get_state()
-      # diff(X) + score
       reward = state[1] + state[2]
       return reward
 
@@ -102,8 +108,19 @@ class PiBotEnv2(gym.Env):
       :return:
       """
       return self.PiBot.get_state()
+  def _record_actions(self):
+      with open(ACTION_FILE, "r") as f:
+          data = json.load(f)
+      count = int(data["count"])
+      data[count] = self.ACTION
+      data["count"] = count+1
+      with open(ACTION_FILE, "w") as f:
+          json.dump(data, f)
 
   def close(self):
+      if self._RECORD_ACTION:
+        print("saving actions")
+        self._record_actions()
       del self.PiBot
 
 

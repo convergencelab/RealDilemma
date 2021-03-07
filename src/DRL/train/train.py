@@ -33,10 +33,12 @@ def train_session(pibot, steps, train_dict=TRAIN_DICT):
 def train(steps, pibot, model, model_name) -> str:
     # If the environment don't follow the interface, an error will be thrown
     env = PiBotEnv2(pibot)
+    # record actions
+    env._RECORD_ACTION = True
     check_env(env, warn=True)
     # The algorithms require a vectorized environment to run
-    env = DummyVecEnv([partial(PiBotEnv2, PiBot=pibot)])
-    model = model(env=env)
+    d_env = DummyVecEnv([partial(PiBotEnv2, PiBot=pibot)])
+    model = model(env=d_env)
     model.learn(total_timesteps=steps)
     fpath = os.path.join(TRAIN_DIR, model_name)
     model.save(fpath)
@@ -45,6 +47,6 @@ def train(steps, pibot, model, model_name) -> str:
       policies[model_name] = fpath
     with open(POLICYF, "w") as f:
         json.dump(policies, f)
-    del pibot
-    del env
+    env._record_actions()
+
     return fpath
