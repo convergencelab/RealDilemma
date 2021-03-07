@@ -15,23 +15,30 @@ class PiBotEnv2(gym.Env):
   """
   metadata = {'render.modes': ['human']}
 
-  def __init__(self, PiBot):
+  def __init__(self, PiBot, servo=False):
       super(PiBotEnv2, self).__init__()
       self.PiBot = PiBot # we are using the newer pibot
+      self.SERVO = servo
       self.CONTROL_LOOKUP = {
           0: self.PiBot.forward,
           1: self.PiBot.backward,
           2: self.PiBot.turn_cw,
           3: self.PiBot.turn_ccw,
-          4: self.PiBot.stop
-         # 4: self.PiBot.turn_servo
+          4: self.PiBot.stop,
+          5: self.PiBot._servo
       }
-
-      self.reward_range = (0, MAX_REWARD)
-      self.action_space = spaces.MultiDiscrete([5,# action
-                                                5,# PWM
-                                                5]# time
-                                                )
+      if self.SERVO:
+          #self.reward_range = (0, MAX_REWARD)
+          self.action_space = spaces.MultiDiscrete([6,# action
+                                                    5,# PWM
+                                                    5]# time
+                                                    )
+      else:
+          self.reward_range = (0, MAX_REWARD)
+          self.action_space = spaces.MultiDiscrete([5,  # action
+                                                    5,  # PWM
+                                                    5]  # time
+                                                   )
       # action, diff(us_readings), total_score
       self.observation_space = spaces.Box(low=np.full(3, -5000), high=np.full(3, 5000), dtype=np.float32)
 

@@ -161,6 +161,27 @@ class PiBot2(PiBot):
         # time.sleep(n)
         self._travel(duty=0, n=n, pwm_thres=[0,0], action=4)
 
+    def _servo(self, duty, n):
+        us_readings = []
+        score = []
+        for i in range(self._us_res-1):
+            # set duty for both motors
+            # pwm thres is hyper param that varies for each direction
+            self.servo.ChangeDutyCycle(duty/self._us_res)
+            us = self.get_ultrasound()
+            us_readings.append(us)
+            if us >= self._us_thres:  # if reading is greater than or equal to the thres
+                score.append(1)
+            else:
+                score.append(0)
+            total_score = sum(score)
+
+        # set duty for both motors
+        self._total_actions+=total_score
+        # update state, set last action taken and read ultrasound sensor
+        self._state[0] = 5 # action taken
+        self._state[1] = sum(np.diff(us_readings)) # dx
+        self._state[2] = sum(score)# sum of score for movement
 
     def _travel(self, duty, n, pwm_thres, action):
         """
@@ -197,23 +218,12 @@ class PiBot2(PiBot):
             else:
                 score.append(0)
             total_score = sum(score)
-            #if total_score <= self._min_score:
-                # if there is not a significant amount of good, make it bad
-             #   total_score = -total_score
 
         # set duty for both motors
         self.l_pwm.ChangeDutyCycle(0)
         self.r_pwm.ChangeDutyCycle(0)
         self._total_actions+=total_score
-        #self._total_actions = max(0, total_score+self._total_actions)
         # update state, set last action taken and read ultrasound sensor
-        #self._state = 0, us_readings, score, total_score
-        # self._state = {
-        #     "action": np.int64(action),
-        #     "us_readings": np.array(us_readings, dtype=np.float32),
-        #     "score": np.array(score, dtype=np.float32),
-        #     "total_score": np.array([total_score], dtype=np.float32)
-        # }
         self._state[0] = action # action taken
         self._state[1] = sum(np.diff(us_readings)) # dx
         self._state[2] = sum(score)# sum of score for movement

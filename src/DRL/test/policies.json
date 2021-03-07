@@ -1,1 +1,1 @@
-{"PPO2": "/home/pi/RealDilemma/src/DRL/train/saved_models/Frank"}
+{"PPO2_W_SERVO": "/home/pi/RealDilemma/src/DRL/train/saved_models/Frank_PPO2_W_SERVO", "A2C": "/home/pi/saved_models/A2C", "PPO2": "/home/pi/saved_models/PPO2"}
