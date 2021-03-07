@@ -1,5 +1,4 @@
 import socket
-import os
 """
 To set some things straight
 """
@@ -13,13 +12,13 @@ H_TITLE = "PI_DRL"
 HOSTNAME = socket.gethostname()
 if HOSTNAME == PC:
     # ensure that mosquitto is in the path
-    ACTION_FILE = r".\actions.txt"
-    RESPONSE_FILE = r".\responses.json"
+    ACTION_FILE = r".\outputs\actions.txt"
+    RESPONSE_FILE = r".\outputs\responses.json"
 else:
-    ACTION_FILE = "/home/pi/RealDilemma/actions.txt"
-    RESPONSE_FILE = r"/home/pi/RealDilemma/responses.json"
+    ACTION_FILE = "/home/pi/RealDilemma/outputs/actions.txt"
+    RESPONSE_FILE = r"/home/pi/RealDilemma/outputs/responses.json"
 
-QUESTIONS_FILE = "./Questions.json"
+QUESTIONS_FILE = "./outputs/Questions.json"
 RPIS = {
           "Jimi": "192.168.137.63",
           "Frank": "192.168.137.118",

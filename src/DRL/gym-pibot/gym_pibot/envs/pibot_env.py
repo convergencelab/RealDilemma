@@ -1,7 +1,7 @@
 import gym
 from gym import error, spaces, utils
 from gym.utils import seeding
-from src.Pi.PiBot.PiBot import PiBot
+from src.Pi.PiBot.pibot import PiBot
 import numpy as np
 
 ENERGY_THRES = 4000# thres for total amount of different motors used in robo
@@ -25,12 +25,8 @@ class PiBotEnv(gym.Env):
           3: self.PiBot.turn_ccw,
           4: self.PiBot.turn_servo
       }
-
       self.reward_range = (0, MAX_REWARD)
-      # Actions: [[0:Forwards, 1:Backwards, 2:turn_cw, 3:turn_ccw, 4:Turn Servo], power]
-      #.action_space = spaces.Box(
-      #    low=np.array([0, 0]), high=np.array([5, 10]))
-      #self.action_space = spaces.Box(low=np.array([0, 0]), high=np.array([4, 10]), dtype=np.int32)
+      # Actions: [[0:Forwards, 1:Backwards, 2:turn_cw, 3:turn_ccw, 4:Turn Servo]]
       self.action_space = spaces.Discrete(5)
       # Initial observation will just be the ultrasound sensor and amount of distance travelled (either forward or backward)
       self.observation_space = spaces.Box(low=np.array([0, 0]), high=np.array([4, 1000]), dtype=np.int32)
@@ -41,7 +37,6 @@ class PiBotEnv(gym.Env):
     :return:
     """
     # initial condition
-
     self.PiBot.reset()
     return self.PiBot.get_state()
 
@@ -65,7 +60,6 @@ class PiBotEnv(gym.Env):
       """ Converts the action space into PiBot action"""
       control = self.CONTROL_LOOKUP[action[0]]
       # perform action with a default of 1s
-      #control(action[1])
       control(1)
 
   def _get_reward(self):

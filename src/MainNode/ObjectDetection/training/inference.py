@@ -2,7 +2,7 @@
 script to perform inference on trained models:
 credit to https://tensorflow-object-detection-api-tutorial.readthedocs.io/en/latest/auto_examples/plot_object_detection_checkpoint.html
 """
-from src.main_node.Communication import main_node
+from src.MainNode.Communication import main_node
 import os
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"   # need to supress GPU due to high memory usage
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'    # Suppress TensorFlow logging (1)

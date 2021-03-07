@@ -1,7 +1,5 @@
 import gym
 from gym import error, spaces, utils
-from gym.utils import seeding
-from src.Pi.PiBot.PiBot2 import PiBot2
 import numpy as np
 
 ENERGY_THRES = 4000# thres for total amount of different motors used in robo
@@ -17,7 +15,7 @@ class PiBotEnv2(gym.Env):
 
   def __init__(self, PiBot, servo=False):
       super(PiBotEnv2, self).__init__()
-      self.PiBot = PiBot # we are using the newer pibot
+      self.PiBot = PiBot
       self.SERVO = servo
       self.CONTROL_LOOKUP = {
           0: self.PiBot.forward,
@@ -48,7 +46,6 @@ class PiBotEnv2(gym.Env):
     :return:
     """
     # initial condition
-
     self.PiBot.reset()
     state = self._get_state()
 

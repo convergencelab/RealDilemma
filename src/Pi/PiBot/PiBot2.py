@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 import time
 import numpy as np
 from threading import Thread
-from src.Pi.PiBot.PiBot import PiBot
+from src.Pi.PiBot.pibot import PiBot
 
 class PiBot2(PiBot):
     """
@@ -72,24 +72,7 @@ class PiBot2(PiBot):
             if self.stop_us:
                 return
             self._ultrasound = self.read_ultrasound()
-    """
-    def _start_comm(self):
-        # start the thread to read frames from the video stream
-        Thread(target=self.update, args=()).start()
-        return self
 
-    def _update_comm(self):
-        # keep looping infinitely until the thread is stopped
-        while True:
-            # if the thread indicator variable is set, stop the thread
-            data, addr = self.s.recvfrom(1024)
-            data = data.decode('utf-8')
-            print("Message from: " + str(addr))
-            print("From connected user: " + data)
-            data = data.upper()
-            print("Sending: " + data)
-            self.s.sendto(data.encode('utf-8'), addr)
-    """
     def forward(self, duty, n):
         """
         move forward: action = 0

@@ -1,6 +1,4 @@
-import socket
-import json
-from settings import RPIS, MAIN_NODE_HOST_NAME, H_TITLE, ACTION_FILE
+from settings import MAIN_NODE_HOST_NAME, H_TITLE, ACTION_FILE
 import os
 """
 connecting main node to pis

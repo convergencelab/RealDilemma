@@ -1,9 +1,9 @@
-from src.main_node.Communication.Communication import *
+from src.MainNode.Communication.communication import *
 import settings
 import socket
 import threading
-from src.Social_Study import questions
-from src.Pi.PiBot.PiBot2 import PiBot2
+from src.SocialStudy import questions
+from src.Pi.PiBot.pibot2 import PiBot2
 """
 determine if main or pi
 """
@@ -15,8 +15,8 @@ if hostname in settings.PI_HOST_NAMES:
     from src.DRL.train import train
 elif hostname == settings.PC:
     IS_PI = False
-   # from src.main_node.Utils.OverHead import OverHead
-    # from src.main_node.Utils.stream_oh_inference import run
+   # from src.MainNode.Utils.OverHead import OverHead
+    # from src.MainNode.Utils.stream_oh_inference import run
 else:
     raise Exception("Must configure this device in settings.py")
 
