@@ -1,5 +1,4 @@
 import tensorflow
-print(tensorflow.__version__)
 import gym
 import json
 import datetime as dt
@@ -16,7 +15,7 @@ TRAIN_DICT = {
     #"ACER": partial(ACER, policy=MlpPolicy, verbose=1),
     # "ACKTR": partial(ACKTR, policy=MlpPolicy, verbose=1),
     # "DQN": partial(DQN, policy=MlpPolicy, verbose=1),
-    "PPO2": partial(PPO2, policy=MlpPolicy, verbose=1),
+   # "PPO2": partial(PPO2, policy=MlpPolicy, verbose=1),
     "A2C": partial(A2C, policy=MlpPolicy, verbose=1),
 
 

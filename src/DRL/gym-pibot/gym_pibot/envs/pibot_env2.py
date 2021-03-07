@@ -15,7 +15,7 @@ class PiBotEnv2(gym.Env):
   """
   metadata = {'render.modes': ['human']}
 
-  def __init__(self, PiBot, servo=True):
+  def __init__(self, PiBot, servo=False):
       super(PiBotEnv2, self).__init__()
       self.PiBot = PiBot
       self.SERVO = servo

@@ -29,7 +29,7 @@ def main_train_and_test():
         threading.Thread(target=questions.get_user_input, args=()).start()
     else:
         pibot = PiBot2()
-        steps = 1
+        steps = 200
         train.train_session(pibot, steps)
         # publish_data(actions)
 
