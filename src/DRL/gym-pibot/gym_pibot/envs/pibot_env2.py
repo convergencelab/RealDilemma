@@ -108,12 +108,10 @@ class PiBotEnv2(gym.Env):
       :return:
       """
       return self.PiBot.get_state()
-  def _record_actions(self):
+  def _record_actions(self, model_name):
       with open(ACTION_FILE, "r") as f:
           data = json.load(f)
-      count = int(data["count"])
-      data[count] = self.ACTION
-      data["count"] = count+1
+      data[model_name] = self.ACTION
       with open(ACTION_FILE, "w") as f:
           json.dump(data, f)
 

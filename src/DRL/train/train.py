@@ -47,6 +47,6 @@ def train(steps, pibot, model, model_name) -> str:
       policies[model_name] = fpath
     with open(POLICYF, "w") as f:
         json.dump(policies, f)
-    env._record_actions()
+    env._record_actions(model_name)
 
     return fpath
