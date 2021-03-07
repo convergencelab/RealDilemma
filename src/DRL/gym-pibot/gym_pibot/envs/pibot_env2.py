@@ -30,7 +30,7 @@ class PiBotEnv2(gym.Env):
       if self.SERVO:
           #self.reward_range = (0, MAX_REWARD)
           self.action_space = spaces.MultiDiscrete([6,# action
-                                                    5,# PWM
+                                                    1,# PWM
                                                     5]# time
                                                     )
       else:
