@@ -9,24 +9,22 @@ import json
 with open(POLICYF, "r") as f:
     POLICIES = json.load(f)
 
-def run_policy(num_steps,pibot, policy_dict=POLICIES) -> str:
+def run_policy(pibot,num_steps, policy_dict=POLICIES, continue_prompt=False) -> None:
+    # If the environment don't follow the interface, an error will be thrown
     env = PiBotEnv2(pibot)
+    # record actions
+    env._RECORD_ACTION = True
     check_env(env, warn=True)
-    # The algorithms require a vectorized environment to run
-    env = DummyVecEnv([partial(PiBotEnv2, PiBot=pibot)])
-    results = {"DEVICE_NAME":HOSTNAME,
-               "POLICIES":[]} 
+    d_env = DummyVecEnv([partial(PiBotEnv2, PiBot=pibot)])
     for k, v in policy_dict.items():
-        results["POLICIES"].append(k)
         if "PPO2" in k:
             model = PPO2.load(v)
         if "A2C" in k:
             model = A2C.load(v)
-        obs = env.reset()
-        results[k] = []
+        obs = d_env.reset()
         for i in range(num_steps):
           action, _states = model.predict(obs)
-          results[k].append(list(list(int(i) for i in a) for a in action))
           obs, rewards, done, info = env.step(action)
-        print(results)
-    return json.dumps(results)
+        env._record_actions(k+"_INFERENCE")
+        if continue_prompt:
+            input("hit enter to continue: ")

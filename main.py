@@ -13,9 +13,10 @@ if hostname in settings.PI_HOST_NAMES:
     IS_PI = True
     # from src.DRL.run_session import train_and_test_bot
     from src.DRL.train import train
+    from src.DRL.test import test
 elif hostname == settings.PC:
     IS_PI = False
-   # from src.MainNode.Utils.OverHead import OverHead
+    # from src.MainNode.Utils.OverHead import OverHead
     # from src.MainNode.Utils.stream_oh_inference import run
 else:
     raise Exception("Must configure this device in settings.py")
@@ -30,8 +31,9 @@ def main_train_and_test():
     else:
         pibot = PiBot2()
         steps = 200
-        train.train_session(pibot, steps)
+        train.train_session(pibot, steps, continue_prompt=True)
         # publish_data(actions)
+        test.run_policy(pibot, steps, continue_prompt=True)
 
 
 
