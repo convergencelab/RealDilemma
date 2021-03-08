@@ -19,6 +19,10 @@ link youtube vid here ...
 
 ## Algorithm 2 (Learning)
 
+<iframe width="640" height="1057"
+src="https://www.youtube.com/embed/tgbNymZ7vqY">
+</iframe>
+
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf1ESyx6VQF0gWw-EU1O__RvmL7Gak7DjO1yrS67ZFGFokp4w/viewform?embedded=true" width="640" height="1057" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 
 ## Algorithm 2
