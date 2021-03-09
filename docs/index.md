@@ -9,7 +9,7 @@ Below there are four videos please fill out your responses in the survey below e
 ## Algorithm 1 (Learning)
 
 <iframe width="420" height="315"
-src="https://www.youtube.com/embed/tgbNymZ7vqY">
+src="https://www.youtube.com/embed/QLW0OHspZ4U">
 </iframe>
 
 
@@ -26,7 +26,7 @@ src="https://www.youtube.com/embed/tgbNymZ7vqY">
 ## Algorithm 2 (Learning)
 
 <iframe width="420" height="315"
-src="https://www.youtube.com/embed/tgbNymZ7vqY">
+src="https://www.youtube.com/embed/R-M8yWBnC7c">
 </iframe>
 
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf1ESyx6VQF0gWw-EU1O__RvmL7Gak7DjO1yrS67ZFGFokp4w/viewform?embedded=true" width="640" height="1057" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
@@ -34,7 +34,7 @@ src="https://www.youtube.com/embed/tgbNymZ7vqY">
 ## Algorithm 2
 
 <iframe width="420" height="315"
-src="https://www.youtube.com/embed/tgbNymZ7vqY">
+src="https://www.youtube.com/embed/AZOFw3w1a8U">
 </iframe>
 
 
