@@ -1,10 +1,8 @@
 # What do you think about these robots?
 
-We are interested in investigating how you interpret these robots! We are looking at two different artificially intelligent algorithms. Both of which we will have you watch a clip of them learning how to interact with their environment, and then one of them actually using what they learned to interact with the environment.
+We are interested in investigating how you interpret these robots! This study looks at two different artificially intelligent algorithms being employed in robots. For both, you will watch a clip of the robots learning how to interact with their environment, and then one of them actually using what they learned to interact with the environment. The robot will try to learn the best way to move as much as possible without getting too close to any other objects. As you can see they are not very good at doing this but are slowly learning how to get better at it. 
 
-In this first and thrid video, you can see the robot learning how to interact with its environment using two different algorithms, it is doing so by using Artificial Neural Networks, the robot will try to learn the best way to move as much as possible without getting too close to any other objects. As you can see they are not very good at doing this but are slowly learning how to be better at it. In the second and third you can see the robot employing the strategy that it learned in the first and third videos to interact with it's environment. 
-
-Below there are four videos please fill out your responses in the survey below each video. Thanks for participating!
+Below there are four videos please fill out your responses in the survey below each video. Thanks for participating! (Please note this survey is completely confidential.)
 
 ## Algorithm 1 (Learning)
 
