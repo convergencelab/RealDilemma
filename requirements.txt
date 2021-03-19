@@ -40,7 +40,7 @@ opencv-python==4.5.1.48
 opt-einsum==3.3.0
 pandas==1.2.2
 -e git+https://github.com/convergencelab/RealDilemma@079f75de6c6f24607fa362cc4e8032c100f84c57#egg=PiBot&subdirectory=Pi/PiBot
-Pillow==7.2.0
+Pillow==8.1.1
 protobuf==3.13.0
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
