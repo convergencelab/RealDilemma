@@ -7,7 +7,7 @@ astor==0.8.1
 astunparse==1.6.3
 atari-py==0.2.6
 cachetools==4.2.1
-certifi==2018.8.24
+certifi==2022.12.7
 cffi==1.14.5
 chardet==3.0.4
 cloudpickle==1.6.0
